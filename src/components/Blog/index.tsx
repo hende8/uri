@@ -10,8 +10,8 @@ const Blog = () => {
     >
       <div className="container">
         <SectionTitle
-          title="Our Latest Blogs"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          title="מאמרים אחרונים מהבלוג"
+          paragraph="טיפים, מדריכים וסיפורי מקרה מעולם שמאות הנזקים – כל מה שכדאי לדעת לפני, במהלך ואחרי הגשת תביעה לחברת הביטוח."
           center
         />
 

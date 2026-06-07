@@ -5,28 +5,28 @@ import SingleTestimonial from "./SingleTestimonial";
 const testimonialData: Testimonial[] = [
   {
     id: 1,
-    name: "Musharof Chy",
-    designation: "Founder @TailGrids",
+    name: "דנה כהן",
+    designation: "בעלת דירה, תל אביב",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "אחרי הצפה מקיר משותף, חברת הביטוח הציעה לי פיצוי שלא כיסה אפילו חצי מהנזק. אורי לקח את התיק לידיים, הכין דוח מקצועי וניהל מולם את המשא ומתן. בסוף קיבלתי פי שלושה מהסכום הראשוני.",
     image: "/images/testimonials/auth-01.png",
     star: 5,
   },
   {
     id: 2,
-    name: "Devid Weilium",
-    designation: "Founder @UIdeck",
+    name: "מיכאל לוי",
+    designation: "מנהל עסק, חיפה",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "אחרי שריפה במחסן ידעתי שאני זקוק לליווי מקצועי. השירות היה מהיר, יסודי ושקוף. בלי הליווי לא הייתי מצליח לקבל את ההחזר על מלאי שניזוק מעשן.",
     image: "/images/testimonials/auth-02.png",
     star: 5,
   },
   {
     id: 3,
-    name: "Lethium Frenci",
-    designation: "Founder @Lineicons",
+    name: "רחל שטרן",
+    designation: "בעלת בית פרטי, מודיעין",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "פריצה לבית גרמה לנזק כפול – גם ברכוש שנגנב וגם בנזק לדלת ולמשקופים. הצוות תיעד הכל, הכין חוות דעת מסודרת, ובסוף קיבלנו פיצוי הוגן בלי להתעמת עם הביטוח לבד.",
     image: "/images/testimonials/auth-03.png",
     star: 5,
   },
@@ -37,8 +37,8 @@ const Testimonials = () => {
     <section className="dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28">
       <div className="container">
         <SectionTitle
-          title="What Our Users Says"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          title="מה הלקוחות שלנו אומרים"
+          paragraph="עשרות בעלי דירות, בתים פרטיים ובעלי עסקים בחרו בנו ללוות אותם בתביעות הביטוח שלהם. הנה כמה מהמילים שלהם על השירות שקיבלו."
           center
         />
 

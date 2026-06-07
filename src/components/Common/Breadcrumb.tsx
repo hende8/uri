@@ -28,11 +28,11 @@ const Breadcrumb = ({
                   <li className="flex items-center">
                     <Link
                       href="/"
-                      className="pr-1 text-base font-medium text-body-color hover:text-primary"
+                      className="ps-1 text-base font-medium text-body-color hover:text-primary"
                     >
-                      Home
+                      דף הבית
                     </Link>
-                    <span className="mr-3 block h-2 w-2 rotate-45 border-r-2 border-t-2 border-body-color"></span>
+                    <span className="ms-3 block h-2 w-2 -rotate-135 border-r-2 border-t-2 border-body-color"></span>
                   </li>
                   <li className="text-base font-medium text-primary">
                     {pageName}
@@ -44,7 +44,7 @@ const Breadcrumb = ({
         </div>
 
         <div>
-          <span className="absolute left-0 top-0 z-[-1]">
+          <span className="absolute right-0 top-0 z-[-1]">
             <svg
               width="287"
               height="254"
@@ -72,7 +72,7 @@ const Breadcrumb = ({
               </defs>
             </svg>
           </span>
-          <span className="absolute right-0 top-0 z-[-1]">
+          <span className="absolute left-0 top-0 z-[-1]">
             <svg
               width="628"
               height="258"

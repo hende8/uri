@@ -3,10 +3,14 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
-import { Inter } from "next/font/google";
+import { Heebo } from "next/font/google";
 import "../styles/index.css";
+import { Providers } from "./providers";
 
-const inter = Inter({ subsets: ["latin"] });
+const heebo = Heebo({
+  subsets: ["hebrew", "latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+});
 
 export default function RootLayout({
   children,
@@ -14,14 +18,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
+    <html suppressHydrationWarning lang="he" dir="rtl">
       <head />
 
-      <body className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}>
+      <body className={`bg-[#FCFCFC] dark:bg-black ${heebo.className}`}>
         <Providers>
           <div className="isolate">
             <Header />
@@ -34,6 +34,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-import { Providers } from "./providers";
-

@@ -5,17 +5,16 @@ import Breadcrumb from "@/components/Common/Breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog Page | Free Next.js Template for Startup and SaaS",
-  description: "This is Blog Page for Startup Nextjs Template",
-  // other metadata
+  title: "מאמרים | אורי שמאות נזקים",
+  description: "טיפים ומדריכים בעולם שמאות הנזקים והתביעות מול חברות הביטוח.",
 };
 
 const Blog = () => {
   return (
     <>
       <Breadcrumb
-        pageName="Blog Grid"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
+        pageName="מאמרים"
+        description="מאמרים, מדריכים וסיפורי מקרה מהשטח – כל מה שכדאי לדעת על שמאות נזקים, תביעות והתמודדות עם חברות הביטוח."
       />
 
       <section className="pt-[120px] pb-[120px]">
@@ -39,7 +38,7 @@ const Blog = () => {
                     href="#0"
                     className="bg-body-color/15 text-body-color hover:bg-primary flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition hover:text-white"
                   >
-                    Prev
+                    הקודם
                   </a>
                 </li>
                 <li className="mx-1">
@@ -76,15 +75,7 @@ const Blog = () => {
                     href="#0"
                     className="bg-body-color/15 text-body-color hover:bg-primary flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition hover:text-white"
                   >
-                    12
-                  </a>
-                </li>
-                <li className="mx-1">
-                  <a
-                    href="#0"
-                    className="bg-body-color/15 text-body-color hover:bg-primary flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition hover:text-white"
-                  >
-                    Next
+                    הבא
                   </a>
                 </li>
               </ul>
