@@ -1,6 +1,6 @@
-import { Feature } from "@/types/feature";
+import { Service } from "@/types/service";
 
-const featuresData: Feature[] = [
+const servicesData: Service[] = [
   {
     id: 1,
     icon: (
@@ -74,4 +74,4 @@ const featuresData: Feature[] = [
       "חוות דעת מומחה לצרכי הליכים משפטיים, בוררויות וייצוג מקצועי בבתי משפט, בעמידה בכללי הראיות וההלכה הפסוקה.",
   },
 ];
-export default featuresData;
+export default servicesData;

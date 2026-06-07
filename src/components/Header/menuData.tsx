@@ -16,7 +16,7 @@ const menuData: Menu[] = [
   {
     id: 3,
     title: "תחומי שמאות",
-    path: "/#features",
+    path: "/#services",
     newTab: false,
   },
   {

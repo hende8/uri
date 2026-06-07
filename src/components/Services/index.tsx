@@ -1,11 +1,11 @@
 import SectionTitle from "../Common/SectionTitle";
-import SingleFeature from "./SingleFeature";
-import featuresData from "./featuresData";
+import SingleService from "./SingleService";
+import servicesData from "./servicesData";
 
-const Features = () => {
+const Services = () => {
   return (
     <>
-      <section id="features" className="py-16 md:py-20 lg:py-28">
+      <section id="services" className="py-16 md:py-20 lg:py-28">
         <div className="container">
           <SectionTitle
             title="תחומי השמאות שלנו"
@@ -14,8 +14,8 @@ const Features = () => {
           />
 
           <div className="grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
-            {featuresData.map((feature) => (
-              <SingleFeature key={feature.id} feature={feature} />
+            {servicesData.map((service) => (
+              <SingleService key={service.id} service={service} />
             ))}
           </div>
         </div>
@@ -24,4 +24,4 @@ const Features = () => {
   );
 };
 
-export default Features;
+export default Services;

@@ -1,6 +1,7 @@
-import AboutSectionOne from "@/components/About/AboutSectionOne";
-import AboutSectionTwo from "@/components/About/AboutSectionTwo";
+import About from "@/components/About";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import Process from "@/components/Process";
+import WhyChooseUs from "@/components/WhyChooseUs";
 
 import { Metadata } from "next";
 
@@ -16,8 +17,9 @@ const AboutPage = () => {
         pageName="אודות"
         description="משרד שמאות עצמאי המתמחה בליווי בעלי נכסים מול חברות הביטוח – בהליכים פשוטים ובתביעות מורכבות כאחד."
       />
-      <AboutSectionOne />
-      <AboutSectionTwo />
+      <About />
+      <WhyChooseUs />
+      <Process />
     </>
   );
 };
