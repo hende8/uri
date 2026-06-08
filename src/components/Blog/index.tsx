@@ -1,8 +1,12 @@
 import SectionTitle from "../Common/SectionTitle";
 import SingleBlog from "./SingleBlog";
-import blogData from "./blogData";
+import { allPosts } from "@/data/posts";
 
 const Blog = () => {
+  const latest = allPosts.slice(0, 3);
+
+  if (latest.length === 0) return null;
+
   return (
     <section
       id="blog"
@@ -18,8 +22,8 @@ const Blog = () => {
         />
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {blogData.map((blog) => (
-            <SingleBlog key={blog.id} blog={blog} />
+          {latest.map((post) => (
+            <SingleBlog key={post.slug} post={post} />
           ))}
         </div>
       </div>
