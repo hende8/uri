@@ -50,12 +50,13 @@ const WhyChooseUs = () => {
           </div>
 
           <div className="w-full px-4 lg:w-1/2">
-            <div className="relative mx-auto aspect-25/24 max-w-[500px] lg:ml-0">
+            <div className="relative mx-auto aspect-square max-w-[500px] overflow-hidden rounded-sm lg:ml-0">
               <Image
-                src="/images/about/about-image.svg"
-                alt="אודות המשרד"
+                src="/images/about/about-image-blueprint.jpg"
+                alt="תכנית אדריכלית"
                 fill
-                className="mx-auto max-w-full drop-shadow-three lg:ml-0"
+                sizes="(max-width: 992px) 100vw, 500px"
+                className="object-cover"
               />
             </div>
           </div>

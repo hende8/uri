@@ -28,12 +28,13 @@ const Process = () => {
       <div className="container">
         <div className="-mx-4 flex flex-wrap items-center">
           <div className="w-full px-4 lg:w-1/2">
-            <div className="relative mx-auto mb-12 aspect-25/24 max-w-[500px] text-center lg:m-0">
+            <div className="relative mx-auto mb-12 aspect-square max-w-[500px] overflow-hidden rounded-sm lg:mb-0">
               <Image
-                src="/images/about/about-image-2.svg"
-                alt="התהליך שלנו"
+                src="/images/about/about-image-process.jpg"
+                alt="תיעוד מקצועי בזירת הנזק"
                 fill
-                className="drop-shadow-three"
+                sizes="(max-width: 992px) 100vw, 500px"
+                className="object-cover"
               />
             </div>
           </div>
