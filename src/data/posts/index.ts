@@ -5,6 +5,7 @@ import hiddenWallLeak from "./hidden-wall-leak";
 import drainagePipeLeak from "./drainage-pipe-leak";
 import neighborUpstairsLeak from "./neighbor-upstairs-leak";
 import floodingDamageClaim from "./flooding-damage-claim";
+import fireDamageAppraiser from "./fire-damage-appraiser";
 
 const posts: Post[] = [
   waterDamageClaimApartment,
@@ -13,6 +14,7 @@ const posts: Post[] = [
   drainagePipeLeak,
   neighborUpstairsLeak,
   floodingDamageClaim,
+  fireDamageAppraiser,
 ];
 
 export const allPosts: Post[] = [...posts].sort(
