@@ -24,11 +24,15 @@ export const generateMetadata = async ({
     title: `${post.metaTitle} | אורי שמאות נזקים`,
     description: post.metaDescription,
     keywords: [post.primaryKeyword, ...post.secondaryKeywords],
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
     openGraph: {
       title: post.metaTitle,
       description: post.metaDescription,
       type: "article",
       locale: "he_IL",
+      url: `/blog/${post.slug}`,
       publishedTime: post.publishDate,
       authors: [post.author.name],
       images: [{ url: post.image }],

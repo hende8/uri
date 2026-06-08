@@ -6,6 +6,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "מאמרים | אורי שמאות נזקים",
   description: "טיפים ומדריכים בעולם שמאות הנזקים והתביעות מול חברות הביטוח.",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 const Blog = () => {

@@ -5,6 +5,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "צרו קשר | אורי שמאות נזקים",
   description: "השאירו פרטים לקבלת ייעוץ ראשוני וביקור בזירת הנזק.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 const ContactPage = () => {

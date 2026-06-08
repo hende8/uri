@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "אורי שמאות נזקים | שמאות נזקי רכוש מקצועית",
   description:
     "משרד שמאות עצמאי המתמחה בהערכת נזקי מים, שריפה, פריצה ונזקי טבע, וליווי מלא של תביעות מול חברות הביטוח.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function Home() {
