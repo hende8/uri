@@ -9,6 +9,7 @@ import fireDamageAppraiser from "./fire-damage-appraiser";
 import howToChooseFireAppraiser from "./how-to-choose-fire-appraiser";
 import fireDamagePreparation from "./fire-damage-preparation";
 import electricalDamageAssessment from "./electrical-damage-assessment";
+import constructionSiteDamage from "./construction-site-damage";
 
 const posts: Post[] = [
   waterDamageClaimApartment,
@@ -21,6 +22,7 @@ const posts: Post[] = [
   howToChooseFireAppraiser,
   fireDamagePreparation,
   electricalDamageAssessment,
+  constructionSiteDamage,
 ];
 
 export const allPosts: Post[] = [...posts].sort(
