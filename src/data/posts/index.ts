@@ -2,11 +2,13 @@ import { Post } from "@/types/blog";
 import waterDamageClaimApartment from "./water-damage-claim-apartment";
 import washingMachineLeak from "./washing-machine-leak";
 import hiddenWallLeak from "./hidden-wall-leak";
+import drainagePipeLeak from "./drainage-pipe-leak";
 
 const posts: Post[] = [
   waterDamageClaimApartment,
   washingMachineLeak,
   hiddenWallLeak,
+  drainagePipeLeak,
 ];
 
 export const allPosts: Post[] = [...posts].sort(
