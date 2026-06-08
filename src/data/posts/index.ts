@@ -10,6 +10,12 @@ import howToChooseFireAppraiser from "./how-to-choose-fire-appraiser";
 import fireDamagePreparation from "./fire-damage-preparation";
 import electricalDamageAssessment from "./electrical-damage-assessment";
 import constructionSiteDamage from "./construction-site-damage";
+import privatePropertyAppraiser from "./private-property-appraiser";
+import businessInterruptionInsurance from "./business-interruption-insurance";
+import insuranceClaimRejected from "./insurance-claim-rejected";
+import theftAndBurglaryDamage from "./theft-and-burglary-damage";
+import stormAndNaturalDisasterDamage from "./storm-and-natural-disaster-damage";
+import propertyDamageAppraiserVsInsuranceAppraiser from "./property-damage-appraiser-vs-insurance-appraiser";
 
 const posts: Post[] = [
   waterDamageClaimApartment,
@@ -23,6 +29,12 @@ const posts: Post[] = [
   fireDamagePreparation,
   electricalDamageAssessment,
   constructionSiteDamage,
+  privatePropertyAppraiser,
+  businessInterruptionInsurance,
+  insuranceClaimRejected,
+  theftAndBurglaryDamage,
+  stormAndNaturalDisasterDamage,
+  propertyDamageAppraiserVsInsuranceAppraiser,
 ];
 
 export const allPosts: Post[] = [...posts].sort(
