@@ -118,3 +118,56 @@ npm run build        # production build (catches type errors)
 
 Build cleanly before committing. The build step runs `tsc` and will
 fail on type errors.
+
+## SEO — outstanding manual steps
+
+Technical SEO infra is already in the repo:
+- `src/lib/site.ts` — single source of truth for `SITE_URL`,
+  `SITE_NAME`, `SITE_PHONE`, etc. Edit `SITE_URL` here and metadataBase,
+  sitemap, robots, canonicals, and Organization JSON-LD all update.
+- `src/app/sitemap.ts` — dynamic sitemap (homepage + about + contact +
+  blog index + every post from `allPosts`).
+- `src/app/robots.ts` — allow `*`, disallow `/blog-details`,
+  `/blog-sidebar`, `/api/`, `/signin`, `/signup`.
+- `src/app/layout.tsx` — `metadataBase`, `ProfessionalService`
+  JSON-LD (areaServed Israel, no LocalBusiness since no public office),
+  `verification.google` placeholder with TODO.
+- Every page has `alternates.canonical`. `/blog/[slug]` has Article +
+  FAQPage JSON-LD already.
+
+**Tasks left for the user to do manually (cannot be done from code):**
+
+1. **Register the production domain.** Currently `SITE_URL` in
+   `src/lib/site.ts` is a placeholder (`https://urishamaut.co.il`).
+   Once the real domain is registered, change that one constant,
+   rebuild, and redeploy.
+
+2. **Google Search Console verification.**
+   - Visit https://search.google.com/search-console
+   - Add property using **URL prefix** method with the production domain
+   - Choose **HTML tag** as the verification method
+   - Copy the value of the `content="..."` attribute from the meta tag
+     Google shows
+   - Paste it into `verification.google` in `src/app/layout.tsx`
+     (the TODO comment marks the exact spot)
+   - Redeploy, then click "Verify" in Search Console
+   - After verification succeeds, submit the sitemap:
+     `https://{your-domain}/sitemap.xml`
+
+3. **Google Business Profile.** Create one at https://business.google.com
+   as a **service-area business** (all-Israel, no public address).
+   This is what makes the business show up in Google Maps + local pack.
+
+4. **Collect Google reviews** from past clients — text them the GBP
+   review link once the profile is verified. Reviews are the single
+   biggest local-SEO signal.
+
+5. **List in Israeli directories** (free or low-cost backlinks):
+   - זאפ — zap.co.il
+   - דפי זהב — d.co.il
+   - B144
+   - אינדקס שמאים (search for current ones; the field changes)
+
+These five steps are sequenced: domain → GSC → GBP → reviews →
+directories. Don't skip ahead; GSC and GBP both need the real domain
+live first.
