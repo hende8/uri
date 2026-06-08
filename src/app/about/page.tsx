@@ -1,5 +1,4 @@
 import About from "@/components/About";
-import Breadcrumb from "@/components/Common/Breadcrumb";
 import Process from "@/components/Process";
 import WhyChooseUs from "@/components/WhyChooseUs";
 
@@ -12,15 +11,11 @@ export const metadata: Metadata = {
 
 const AboutPage = () => {
   return (
-    <>
-      <Breadcrumb
-        pageName="אודות"
-        description="משרד שמאות עצמאי המתמחה בליווי בעלי נכסים מול חברות הביטוח – בהליכים פשוטים ובתביעות מורכבות כאחד."
-      />
+    <main className="pt-[100px] md:pt-[120px]">
       <About />
       <WhyChooseUs />
       <Process />
-    </>
+    </main>
   );
 };
 

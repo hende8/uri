@@ -9,8 +9,8 @@ const checkIcon = (
 
 const WhyChooseUs = () => {
   const List = ({ text }) => (
-    <p className="text-body-color mb-5 flex items-center text-lg font-medium">
-      <span className="bg-primary/10 text-primary ms-4 flex h-[30px] w-[30px] items-center justify-center rounded-md">
+    <p className="mb-5 flex items-center text-base font-medium text-dark">
+      <span className="ms-4 flex h-[28px] w-[28px] items-center justify-center rounded-sm bg-primary text-white">
         {checkIcon}
       </span>
       {text}
@@ -18,52 +18,45 @@ const WhyChooseUs = () => {
   );
 
   return (
-    <section id="why-us" className="pt-16 md:pt-20 lg:pt-28">
+    <section
+      id="why-us"
+      className="bg-gray-light py-16 md:py-20 lg:py-28"
+    >
       <div className="container">
-        <div className="border-b border-body-color/[.15] pb-16 dark:border-white/[.15] md:pb-20 lg:pb-28">
-          <div className="-mx-4 flex flex-wrap items-center">
-            <div className="w-full px-4 lg:w-1/2">
-              <SectionTitle
-                title="שמאות עצמאית שמעמידה את האינטרס שלכם במרכז"
-                paragraph="אנחנו פועלים כסניגור המקצועי שלכם מול חברות הביטוח. בעזרת ניסיון של למעלה מ-15 שנה בענף, אנחנו מבטיחים שכל נזק מתועד, מוערך ומפוצה במלואו – בלי שתצטרכו להתמודד עם הבירוקרטיה לבד."
-                mb="44px"
-              />
+        <div className="-mx-4 flex flex-wrap items-center">
+          <div className="w-full px-4 lg:w-1/2">
+            <SectionTitle
+              eyebrow="למה לבחור בנו"
+              title="שמאות עצמאית שמעמידה את האינטרס שלכם במרכז"
+              paragraph="אנחנו פועלים כסניגור המקצועי שלכם מול חברות הביטוח. בעזרת ניסיון של למעלה מ-15 שנה בענף, אנחנו מבטיחים שכל נזק מתועד, מוערך ומפוצה במלואו – בלי שתצטרכו להתמודד עם הבירוקרטיה לבד."
+              mb="44px"
+            />
 
-              <div
-                className="mb-12 max-w-[570px] lg:mb-0"
-                data-wow-delay=".15s"
-              >
-                <div className="mx-[-12px] flex flex-wrap">
-                  <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="שמאות בלתי תלויה" />
-                    <List text="תיעוד מקצועי בזירה" />
-                    <List text="ייצוג מול חברת הביטוח" />
-                  </div>
+            <div className="mb-12 max-w-[570px] lg:mb-0" data-wow-delay=".15s">
+              <div className="mx-[-12px] flex flex-wrap">
+                <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
+                  <List text="שמאות בלתי תלויה" />
+                  <List text="תיעוד מקצועי בזירה" />
+                  <List text="ייצוג מול חברת הביטוח" />
+                </div>
 
-                  <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="חוות דעת קבילות" />
-                    <List text="טיפול בתביעות מורכבות" />
-                    <List text="זמינות לאורך כל התהליך" />
-                  </div>
+                <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
+                  <List text="חוות דעת קבילות" />
+                  <List text="טיפול בתביעות מורכבות" />
+                  <List text="זמינות לאורך כל התהליך" />
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="w-full px-4 lg:w-1/2">
-              <div className="relative mx-auto aspect-25/24 max-w-[500px] lg:ml-0">
-                <Image
-                  src="/images/about/about-image.svg"
-                  alt="אודות המשרד"
-                  fill
-                  className="mx-auto max-w-full drop-shadow-three dark:hidden dark:drop-shadow-none lg:ml-0"
-                />
-                <Image
-                  src="/images/about/about-image-dark.svg"
-                  alt="אודות המשרד"
-                  fill
-                  className="mx-auto hidden max-w-full drop-shadow-three dark:block dark:drop-shadow-none lg:ml-0"
-                />
-              </div>
+          <div className="w-full px-4 lg:w-1/2">
+            <div className="relative mx-auto aspect-25/24 max-w-[500px] lg:ml-0">
+              <Image
+                src="/images/about/about-image.svg"
+                alt="אודות המשרד"
+                fill
+                className="mx-auto max-w-full drop-shadow-three lg:ml-0"
+              />
             </div>
           </div>
         </div>

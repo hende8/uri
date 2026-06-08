@@ -18,10 +18,10 @@ const BlogSidebarPage = () => {
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 lg:w-8/12">
               <div>
-                <h1 className="mb-8 text-3xl leading-tight font-bold text-black sm:text-4xl sm:leading-tight dark:text-white">
+                <h1 className="mb-8 text-3xl leading-tight font-bold text-black sm:text-4xl sm:leading-tight">
                   5 טעויות נפוצות בהגשת תביעת ביטוח לנזקי שריפה
                 </h1>
-                <div className="border-body-color/10 mb-10 flex flex-wrap items-center justify-between border-b pb-4 dark:border-white/10">
+                <div className="border-body-color/10 mb-10 flex flex-wrap items-center justify-between border-b pb-4">
                   <div className="flex flex-wrap items-center">
                     <div className="ms-10 mb-5 flex items-center">
                       <div className="ms-4">
@@ -79,7 +79,7 @@ const BlogSidebarPage = () => {
                   <p className="text-body-color mb-8 text-base leading-relaxed font-medium sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                     הטעות הראשונה והנפוצה ביותר היא לפנות את הזירה לפני שהיא
                     תועדה כראוי.
-                    <strong className="text-primary dark:text-white">
+                    <strong className="text-primary">
                       {" "}אסור לזרוק או לפנות פריטים שניזוקו{" "}
                     </strong>
                     לפני שהשמאי הגיע ותיעד את הנזק. הראיות בזירה הן הבסיס
@@ -90,7 +90,7 @@ const BlogSidebarPage = () => {
                     הביטוח עובד בעבור החברה ולא בעבורכם – לכן חשוב להעמיד
                     שמאי מבוטח עצמאי שיגן על האינטרסים שלכם.
                   </p>
-                  <h3 className="font-xl mb-10 leading-tight font-bold text-black sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight dark:text-white">
+                  <h3 className="font-xl mb-10 leading-tight font-bold text-black sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight">
                     מה לעשות במקום
                   </h3>
                   <ul className="text-body-color mb-10 list-inside list-disc">
@@ -142,12 +142,12 @@ const BlogSidebarPage = () => {
               </div>
             </div>
             <div className="w-full px-4 lg:w-4/12">
-              <div className="shadow-three dark:bg-gray-dark mt-12 mb-10 rounded-xs bg-white p-6 lg:mt-0 dark:shadow-none">
+              <div className="shadow-three mt-12 mb-10 rounded-xs bg-white p-6 lg:mt-0">
                 <div className="flex items-center justify-between">
                   <input
                     type="text"
                     placeholder="חיפוש מאמר..."
-                    className="border-stroke dark:text-body-color-dark dark:shadow-two text-body-color focus:border-primary dark:focus:border-primary me-4 w-full rounded-xs border bg-[#f8f8f8] px-6 py-3 text-base outline-hidden transition-all duration-300 dark:border-transparent dark:bg-[#2C303B] dark:focus:shadow-none"
+                    className="border-stroke text-body-color focus:border-primary me-4 w-full rounded-xs border bg-[#f8f8f8] px-6 py-3 text-base outline-hidden transition-all duration-300"
                   />
                   <button
                     aria-label="כפתור חיפוש"
@@ -168,12 +168,12 @@ const BlogSidebarPage = () => {
                   </button>
                 </div>
               </div>
-              <div className="shadow-three dark:bg-gray-dark mb-10 rounded-xs bg-white dark:shadow-none">
-                <h3 className="border-body-color/10 border-b px-8 py-4 text-lg font-semibold text-black dark:border-white/10 dark:text-white">
+              <div className="shadow-three mb-10 rounded-xs bg-white">
+                <h3 className="border-body-color/10 border-b px-8 py-4 text-lg font-semibold text-black">
                   מאמרים קשורים
                 </h3>
                 <ul className="p-8">
-                  <li className="border-body-color/10 mb-6 border-b pb-6 dark:border-white/10">
+                  <li className="border-body-color/10 mb-6 border-b pb-6">
                     <RelatedPost
                       title="כיצד מתמודדים עם תביעת נזק שנדחתה"
                       image="/images/blog/post-01.jpg"
@@ -181,7 +181,7 @@ const BlogSidebarPage = () => {
                       date="12 בפבר׳ 2026"
                     />
                   </li>
-                  <li className="border-body-color/10 mb-6 border-b pb-6 dark:border-white/10">
+                  <li className="border-body-color/10 mb-6 border-b pb-6">
                     <RelatedPost
                       title="המדריך לבחירת פוליסת ביטוח מבנה ותכולה"
                       image="/images/blog/post-02.jpg"
@@ -199,8 +199,8 @@ const BlogSidebarPage = () => {
                   </li>
                 </ul>
               </div>
-              <div className="shadow-three dark:bg-gray-dark mb-10 rounded-xs bg-white dark:shadow-none">
-                <h3 className="border-body-color/10 border-b px-8 py-4 text-lg font-semibold text-black dark:border-white/10 dark:text-white">
+              <div className="shadow-three mb-10 rounded-xs bg-white">
+                <h3 className="border-body-color/10 border-b px-8 py-4 text-lg font-semibold text-black">
                   קטגוריות פופולריות
                 </h3>
                 <ul className="px-8 py-6">
@@ -246,8 +246,8 @@ const BlogSidebarPage = () => {
                   </li>
                 </ul>
               </div>
-              <div className="shadow-three dark:bg-gray-dark mb-10 rounded-xs bg-white dark:shadow-none">
-                <h3 className="border-body-color/10 border-b px-8 py-4 text-lg font-semibold text-black dark:border-white/10 dark:text-white">
+              <div className="shadow-three mb-10 rounded-xs bg-white">
+                <h3 className="border-body-color/10 border-b px-8 py-4 text-lg font-semibold text-black">
                   תגיות פופולריות
                 </h3>
                 <div className="flex flex-wrap px-8 py-6">

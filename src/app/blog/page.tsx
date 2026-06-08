@@ -1,6 +1,5 @@
 import SingleBlog from "@/components/Blog/SingleBlog";
 import blogData from "@/components/Blog/blogData";
-import Breadcrumb from "@/components/Common/Breadcrumb";
 
 import { Metadata } from "next";
 
@@ -11,13 +10,8 @@ export const metadata: Metadata = {
 
 const Blog = () => {
   return (
-    <>
-      <Breadcrumb
-        pageName="מאמרים"
-        description="מאמרים, מדריכים וסיפורי מקרה מהשטח – כל מה שכדאי לדעת על שמאות נזקים, תביעות והתמודדות עם חברות הביטוח."
-      />
-
-      <section className="pt-[120px] pb-[120px]">
+    <main>
+      <section className="pt-[140px] pb-[120px] md:pt-[160px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">
             {blogData.map((blog) => (
@@ -83,7 +77,7 @@ const Blog = () => {
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 };
 

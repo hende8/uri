@@ -1,10 +1,20 @@
 import SectionTitle from "../Common/SectionTitle";
 
+const stats = [
+  { value: "‎+15", label: "שנות ניסיון בענף הביטוח והשמאות" },
+  { value: "‎+500", label: "תיקי שמאות שטופלו בהצלחה" },
+  { value: "24/6", label: "זמינות לפניות דחופות בזירת הנזק" },
+];
+
 const About = () => {
   return (
-    <section id="about" className="bg-gray-light dark:bg-bg-color-dark py-16 md:py-20 lg:py-28">
+    <section
+      id="about"
+      className="bg-gray-light py-16 md:py-20 lg:py-28"
+    >
       <div className="container">
         <SectionTitle
+          eyebrow="אודות המשרד"
           title="אודות המשרד"
           paragraph="משרד שמאות עצמאי עם ניסיון של למעלה מ-15 שנה בשמאות נזקי רכוש. אנחנו פועלים אך ורק עבור המבוטח – לא עבור חברות הביטוח – ומלווים תיקים מורכבים מהפנייה הראשונה ועד קבלת הפיצוי המלא."
           center
@@ -12,37 +22,21 @@ const About = () => {
           mb="64px"
         />
 
-        <div className="-mx-4 flex flex-wrap justify-center">
-          <div className="w-full px-4 md:w-1/3">
-            <div className="mb-8 text-center md:mb-0">
-              <h3 className="mb-3 text-3xl font-bold text-primary sm:text-4xl">
-                ‎+15
+        <div className="mx-auto grid max-w-[920px] grid-cols-1 gap-6 md:grid-cols-3">
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="relative rounded-sm border border-stroke-stroke bg-white p-8 text-center"
+            >
+              <span className="absolute top-0 start-1/2 h-[3px] w-12 -translate-x-1/2 rounded-b-sm bg-accent" />
+              <h3 className="mb-3 text-4xl font-extrabold text-primary sm:text-[44px]">
+                {stat.value}
               </h3>
-              <p className="text-body-color text-base font-medium">
-                שנות ניסיון בענף הביטוח והשמאות
+              <p className="text-base font-medium text-body-color">
+                {stat.label}
               </p>
             </div>
-          </div>
-          <div className="w-full px-4 md:w-1/3">
-            <div className="mb-8 text-center md:mb-0">
-              <h3 className="mb-3 text-3xl font-bold text-primary sm:text-4xl">
-                ‎+500
-              </h3>
-              <p className="text-body-color text-base font-medium">
-                תיקי שמאות שטופלו בהצלחה
-              </p>
-            </div>
-          </div>
-          <div className="w-full px-4 md:w-1/3">
-            <div className="text-center">
-              <h3 className="mb-3 text-3xl font-bold text-primary sm:text-4xl">
-                24/6
-              </h3>
-              <p className="text-body-color text-base font-medium">
-                זמינות לפניות דחופות בזירת הנזק
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

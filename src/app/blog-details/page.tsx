@@ -17,10 +17,10 @@ const BlogDetailsPage = () => {
           <div className="-mx-4 flex flex-wrap justify-center">
             <div className="w-full px-4 lg:w-8/12">
               <div>
-                <h2 className="mb-8 text-3xl leading-tight font-bold text-black sm:text-4xl sm:leading-tight dark:text-white">
+                <h2 className="mb-8 text-3xl leading-tight font-bold text-black sm:text-4xl sm:leading-tight">
                   מה לעשות בזירת נזק לפני שמגיע השמאי
                 </h2>
-                <div className="border-body-color/10 mb-10 flex flex-wrap items-center justify-between border-b pb-4 dark:border-white/10">
+                <div className="border-body-color/10 mb-10 flex flex-wrap items-center justify-between border-b pb-4">
                   <div className="flex flex-wrap items-center">
                     <div className="ms-10 mb-5 flex items-center">
                       <div className="ms-4">
@@ -79,7 +79,7 @@ const BlogDetailsPage = () => {
                     בכל מקרה של נזק חשוב לתעד את הזירה לפני שמתחילים לפנות.
                     צילמו את כל הנזק במכמה זוויות, רשמו את שעת האירוע ואת
                     הנסיבות, ושמרו כל מסמך, חשבונית ופריט שניזוק –
-                    <strong className="text-primary dark:text-white">
+                    <strong className="text-primary">
                       {" "}אלה הראיות החשובות ביותר{" "}
                     </strong>
                     שיעמדו לרשותכם בתהליך התביעה.
@@ -89,7 +89,7 @@ const BlogDetailsPage = () => {
                     בקשו במפורש לבחור שמאי מטעמכם – זוהי זכות שניתנת לכל
                     מבוטח על פי חוק.
                   </p>
-                  <h3 className="font-xl mb-10 leading-tight font-bold text-black sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight dark:text-white">
+                  <h3 className="font-xl mb-10 leading-tight font-bold text-black sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight">
                     צ׳קליסט קצר לזירת נזק
                   </h3>
                   <ul className="text-body-color mb-10 list-inside list-disc">

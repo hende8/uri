@@ -20,14 +20,34 @@ appraiser.
 - **React 19**, TypeScript
 - **Tailwind CSS v4** — config in `src/styles/index.css` via
   `@theme`/`@utility` blocks (no `tailwind.config.js`)
-- **next-themes** for dark mode toggle
 - **Heebo** font via `next/font/google` (Hebrew + Latin subsets)
 - Path alias: `@/*` → `src/*` (see `tsconfig.json`)
+
+## Theme
+
+Light mode only. The site does not support dark mode and `next-themes`
+is not installed. Do not add `dark:` Tailwind variants — they will not
+render. The design system is a single light palette tuned for a
+professional appraisal/insurance feel:
+
+- `--color-primary: #0F3B68` (deep blue)
+- `--color-secondary: #2E6EA6` (supporting blue, used for hover and
+  uppercase section eyebrows)
+- `--color-accent: #D4AF37` (gold, used sparingly — accent rules,
+  footer column underlines, the dot in the brand wordmark)
+- `--color-gray-light: #F5F7FA` (alternating section background)
+
+Alternating section backgrounds: Hero/Services/Process/Contact on
+white; Why Choose Us/About/Blog on `bg-gray-light`. Section eyebrows
+use the `accent-rule` helper class defined in `index.css`.
 
 ## Internationalization & direction
 
 - Site is **Hebrew RTL only**. `<html lang="he" dir="rtl">` set in
-  `src/app/layout.tsx`.
+  `src/app/layout.tsx`. `layout.tsx` is a server component — keep it
+  that way. Components that need React hooks must declare
+  `"use client"` themselves (e.g. `Header`, `ScrollToTop`,
+  `ScrollUp`).
 - All copy is Hebrew. Use sentence-style Hebrew quotes (״) for
   quotation marks, not straight `"`.
 - **Use logical Tailwind utilities** (`ms-`, `me-`, `ps-`, `pe-`,
