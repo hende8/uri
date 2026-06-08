@@ -49,7 +49,7 @@ const Footer = () => {
                   </svg>
                 </a>
                 <a
-                  href="mailto:office@example.co.il"
+                  href="mailto:debbiuri6@gmail.com"
                   aria-label="דוא״ל"
                   className="text-body-color duration-300 hover:text-primary"
                 >
@@ -153,10 +153,10 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="mailto:office@example.co.il"
+                    href="mailto:debbiuri6@gmail.com"
                     className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary"
                   >
-                    office@example.co.il
+                    debbiuri6@gmail.com
                   </a>
                 </li>
               </ul>

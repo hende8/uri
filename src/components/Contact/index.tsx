@@ -1,4 +1,57 @@
+"use client";
+
+import { FormEvent, useState } from "react";
+
+type Status = "idle" | "submitting" | "success" | "error";
+
+// Mocked values sent to the API for fields not exposed in the UI.
+// Replace once the contact backend supports name + phone only.
+const MOCK_SUBJECT = "פנייה חדשה מאתר אורי שמאות";
+const MOCK_MESSAGE = "פנייה דרך טופס יצירת קשר באתר.";
+
 const Contact = () => {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus("submitting");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          phone,
+          subject: MOCK_SUBJECT,
+          message: MOCK_MESSAGE,
+        }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data?.error ?? "שליחת הפנייה נכשלה. נסו שוב מאוחר יותר.");
+      }
+
+      setStatus("success");
+      setName("");
+      setPhone("");
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "אירעה שגיאה. נסו שוב מאוחר יותר.",
+      );
+    }
+  };
+
+  const isSubmitting = status === "submitting";
+
   return (
     <section
       id="contact"
@@ -21,7 +74,7 @@ const Contact = () => {
                   ראשוני ללא התחייבות.
                 </p>
               </div>
-              <form>
+              <form onSubmit={handleSubmit} noValidate>
                 <div className="-mx-4 flex flex-wrap">
                   <div className="w-full px-4 md:w-1/2">
                     <div className="mb-8">
@@ -32,7 +85,13 @@ const Contact = () => {
                         שם מלא
                       </label>
                       <input
+                        id="name"
+                        name="name"
                         type="text"
+                        required
+                        autoComplete="name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                         placeholder="הקלידו את שמכם"
                         className="w-full rounded-sm border border-stroke-stroke bg-white px-6 py-3 text-base text-dark outline-none transition focus:border-primary"
                       />
@@ -47,32 +106,37 @@ const Contact = () => {
                         טלפון
                       </label>
                       <input
+                        id="phone"
+                        name="phone"
                         type="tel"
+                        required
+                        autoComplete="tel"
+                        inputMode="tel"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
                         placeholder="050-6273002"
                         className="w-full rounded-sm border border-stroke-stroke bg-white px-6 py-3 text-base text-dark outline-none transition focus:border-primary"
                       />
                     </div>
                   </div>
-                  <div className="w-full px-4">
-                    <div className="mb-8">
-                      <label
-                        htmlFor="message"
-                        className="mb-3 block text-sm font-medium text-dark"
-                      >
-                        תיאור הנזק
-                      </label>
-                      <textarea
-                        name="message"
-                        rows={5}
-                        placeholder="תארו בקצרה את הנזק ואת חברת הביטוח שלכם"
-                        className="w-full resize-none rounded-sm border border-stroke-stroke bg-white px-6 py-3 text-base text-dark outline-none transition focus:border-primary"
-                      ></textarea>
-                    </div>
-                  </div>
                   <div className="w-full px-4 text-center">
-                    <button className="inline-flex items-center justify-center rounded-sm bg-primary px-10 py-4 text-base font-semibold text-white shadow-submit transition duration-300 hover:bg-secondary">
-                      שליחת פנייה
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="inline-flex items-center justify-center rounded-sm bg-primary px-10 py-4 text-base font-semibold text-white shadow-submit transition duration-300 hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-60"
+                    >
+                      {isSubmitting ? "שולח..." : "שליחת פנייה"}
                     </button>
+                    {status === "success" && (
+                      <p className="mt-6 text-sm font-medium text-primary">
+                        ההודעה נשלחה. נחזור אליכם בהקדם.
+                      </p>
+                    )}
+                    {status === "error" && (
+                      <p className="mt-6 text-sm font-medium text-red-600">
+                        {errorMessage || "אירעה שגיאה. נסו שוב מאוחר יותר."}
+                      </p>
+                    )}
                   </div>
                 </div>
               </form>
