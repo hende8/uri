@@ -1,7 +1,13 @@
 import { Post } from "@/types/blog";
 import waterDamageClaimApartment from "./water-damage-claim-apartment";
+import washingMachineLeak from "./washing-machine-leak";
+import hiddenWallLeak from "./hidden-wall-leak";
 
-const posts: Post[] = [waterDamageClaimApartment];
+const posts: Post[] = [
+  waterDamageClaimApartment,
+  washingMachineLeak,
+  hiddenWallLeak,
+];
 
 export const allPosts: Post[] = [...posts].sort(
   (a, b) => Date.parse(b.publishDate) - Date.parse(a.publishDate),
