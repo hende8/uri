@@ -1,6 +1,13 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
+import {
+  SITE_DESCRIPTION,
+  SITE_LOGO_PATH,
+  SITE_NAME,
+  SITE_PHONE,
+  SITE_URL,
+} from "@/lib/site";
 import { Metadata } from "next";
 import { Heebo } from "next/font/google";
 import "../styles/index.css";
@@ -11,12 +18,24 @@ const heebo = Heebo({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "אורי שמאות נזקים | שמאות נזקי רכוש מקצועית",
-    template: "%s | אורי שמאות נזקים",
+    default: `${SITE_NAME} | שמאות נזקי רכוש מקצועית`,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "משרד שמאות עצמאי המתמחה בהערכת נזקי מים, שריפה, פריצה ונזקי טבע, וליווי מלא של תביעות מול חברות הביטוח.",
+  description: SITE_DESCRIPTION,
+  alternates: {
+    canonical: "/",
+  },
+  // TODO: paste the Google Search Console verification token here.
+  // 1. Go to https://search.google.com/search-console
+  // 2. Add a property using the URL prefix method with the production domain.
+  // 3. Choose "HTML tag" as the verification method.
+  // 4. Copy the value of the `content` attribute from the meta tag and
+  //    replace the empty string below, then redeploy.
+  verification: {
+    google: "",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -42,18 +61,36 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "he_IL",
-    title: "אורי שמאות נזקים | שמאות נזקי רכוש מקצועית",
-    description:
-      "משרד שמאות עצמאי המתמחה בהערכת נזקי מים, שריפה, פריצה ונזקי טבע, וליווי מלא של תביעות מול חברות הביטוח.",
+    title: `${SITE_NAME} | שמאות נזקי רכוש מקצועית`,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
     images: [
       {
         url: "/og-image.png",
         width: 1730,
         height: 909,
-        alt: "אורי שמאות נזקים",
+        alt: SITE_NAME,
       },
     ],
   },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: SITE_NAME,
+  description: SITE_DESCRIPTION,
+  url: SITE_URL,
+  logo: `${SITE_URL}${SITE_LOGO_PATH}`,
+  image: `${SITE_URL}/og-image.png`,
+  telephone: SITE_PHONE,
+  areaServed: {
+    "@type": "Country",
+    name: "Israel",
+  },
+  inLanguage: "he-IL",
+  priceRange: "₪₪",
 };
 
 export default function RootLayout({
@@ -66,6 +103,12 @@ export default function RootLayout({
       <head />
 
       <body className={`bg-white ${heebo.className}`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
         <div className="isolate">
           <Header />
           {children}
