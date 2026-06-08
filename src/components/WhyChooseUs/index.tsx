@@ -9,8 +9,8 @@ const checkIcon = (
 
 const WhyChooseUs = () => {
   const List = ({ text }) => (
-    <p className="mb-5 flex items-center text-base font-medium text-dark">
-      <span className="ms-4 flex h-[28px] w-[28px] items-center justify-center rounded-sm bg-primary text-white">
+    <p className="mb-5 flex items-center gap-3 text-base font-medium text-dark">
+      <span className="flex h-[28px] w-[28px] shrink-0 items-center justify-center rounded-sm bg-primary text-white">
         {checkIcon}
       </span>
       {text}

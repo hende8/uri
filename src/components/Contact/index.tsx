@@ -48,7 +48,7 @@ const Contact = () => {
                       </label>
                       <input
                         type="tel"
-                        placeholder="050-0000000"
+                        placeholder="050-6273002"
                         className="w-full rounded-sm border border-stroke-stroke bg-white px-6 py-3 text-base text-dark outline-none transition focus:border-primary"
                       />
                     </div>

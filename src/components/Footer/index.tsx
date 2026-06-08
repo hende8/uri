@@ -29,7 +29,7 @@ const Footer = () => {
               </p>
               <div className="flex items-center gap-6">
                 <a
-                  href="https://wa.me/972500000000"
+                  href="https://wa.me/972506273002"
                   aria-label="ווטסאפ"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -40,7 +40,7 @@ const Footer = () => {
                   </svg>
                 </a>
                 <a
-                  href="tel:+972500000000"
+                  href="tel:+972506273002"
                   aria-label="טלפון"
                   className="text-body-color duration-300 hover:text-primary"
                 >
@@ -145,10 +145,10 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="tel:+972500000000"
+                    href="tel:+972506273002"
                     className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary"
                   >
-                    050-000-0000
+                    050-6273002
                   </a>
                 </li>
                 <li>
