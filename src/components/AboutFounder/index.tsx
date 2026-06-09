@@ -44,17 +44,6 @@ const AboutFounder = () => {
           </div>
         </div>
 
-        <div className="mx-auto mt-16 max-w-[560px]">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-sm shadow-md">
-            <Image
-              src="/images/hero/uri-hero.png"
-              alt="אורי דבי בזירת בדיקה, מתעד נזק עבור תביעת ביטוח"
-              fill
-              sizes="(max-width: 640px) 100vw, 560px"
-              className="object-cover"
-            />
-          </div>
-        </div>
       </div>
     </section>
   );
