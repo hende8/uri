@@ -27,14 +27,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  // TODO: paste the Google Search Console verification token here.
-  // 1. Go to https://search.google.com/search-console
-  // 2. Add a property using the URL prefix method with the production domain.
-  // 3. Choose "HTML tag" as the verification method.
-  // 4. Copy the value of the `content` attribute from the meta tag and
-  //    replace the empty string below, then redeploy.
   verification: {
-    google: "",
+    google: "z4A-hE2sjvtdvnVDy2h8t_AIKy7-WALlezL1YaGRbt4",
   },
   icons: {
     icon: [
