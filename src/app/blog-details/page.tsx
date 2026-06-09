@@ -34,7 +34,7 @@ const BlogDetailsPage = () => {
                       </div>
                       <div className="w-full">
                         <span className="text-body-color mb-1 text-base font-medium">
-                          מאת <span>אורי כהן</span>
+                          מאת <span>אורי דבי</span>
                         </span>
                       </div>
                     </div>

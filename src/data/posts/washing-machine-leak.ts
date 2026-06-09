@@ -19,7 +19,7 @@ const post: Post = {
   publishDate: "2026-06-09",
   readTimeMinutes: 11,
   author: {
-    name: "אורי כהן",
+    name: "אורי דבי",
     image: "/images/blog/author-03.png",
     designation: "שמאי רכוש מוסמך",
   },
