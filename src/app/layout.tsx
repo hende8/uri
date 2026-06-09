@@ -61,9 +61,10 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     images: [
       {
-        url: "/og-image.png",
-        width: 1730,
-        height: 909,
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
         alt: SITE_NAME,
       },
     ],
@@ -77,7 +78,7 @@ const organizationSchema = {
   description: SITE_DESCRIPTION,
   url: SITE_URL,
   logo: `${SITE_URL}${SITE_LOGO_PATH}`,
-  image: `${SITE_URL}/og-image.png`,
+  image: `${SITE_URL}/og-image.jpg`,
   telephone: SITE_PHONE,
   areaServed: {
     "@type": "Country",
