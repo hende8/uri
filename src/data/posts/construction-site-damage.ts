@@ -20,7 +20,7 @@ const post: Post = {
   readTimeMinutes: 13,
   author: {
     name: "אורי דבי",
-    image: "/images/blog/author-03.png",
+    image: "/images/blog/uri-avatar.png",
     designation: "שמאי רכוש מוסמך",
   },
   image: "/images/blog/construction-damage-01.jpg",

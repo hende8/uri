@@ -107,6 +107,15 @@ Testimonials) without an explicit ask.
 - **Section anchor ids** must match what Header/Footer links point to.
   When you rename a section anchor, sweep `components/Header/menuData.tsx`
   and `components/Footer/index.tsx` for stale `#anchor` references.
+- **Log infrastructure changes to `lessons.md`.** Whenever you build
+  something that future work will plug into — a new routing pattern,
+  a new data source, a new global utility, a new SEO/meta system, a
+  new build step, a new dependency, a new convention — append an entry
+  to `lessons.md` (at the repo root). Format and examples are in the
+  file. Do NOT log per-content additions (a single blog article, a
+  copy tweak, a styling change) — those are not infrastructure. The
+  goal is so the next session can read `lessons.md` and understand the
+  why behind the architecture without reverse-engineering the diff.
 
 ## Local dev
 
