@@ -1,7 +1,6 @@
-// TODO: replace with the real production domain once registered.
 // Single source of truth for metadataBase, sitemap, robots, canonical URLs,
-// and Organization JSON-LD. Update this one constant when the domain is live.
-export const SITE_URL = "https://urishamaut.co.il";
+// and Organization JSON-LD.
+export const SITE_URL = "https://www.urishamaut.co.il";
 
 export const SITE_NAME = "אורי שמאות נזקים";
 
