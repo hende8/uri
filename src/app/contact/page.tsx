@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/contact",
   },
+  openGraph: {
+    url: "/contact",
+  },
 };
 
 const ContactPage = () => {

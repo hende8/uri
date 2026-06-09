@@ -3,6 +3,7 @@ import SharePost from "@/components/Blog/SharePost";
 import TagButton from "@/components/Blog/TagButton";
 import { getAllSlugs, getPostBySlug } from "@/data/posts";
 import { formatHebrewDate } from "@/lib/hebrew-date";
+import { SITE_LOGO_PATH, SITE_NAME, SITE_URL } from "@/lib/site";
 import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -45,12 +46,15 @@ const BlogPostPage = async ({ params }: Props) => {
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
+  const absoluteUrl = (path: string) =>
+    path.startsWith("http") ? path : `${SITE_URL}${path}`;
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.metaDescription,
-    image: post.image,
+    image: absoluteUrl(post.image),
     datePublished: post.publishDate,
     author: {
       "@type": "Person",
@@ -59,7 +63,15 @@ const BlogPostPage = async ({ params }: Props) => {
     },
     publisher: {
       "@type": "Organization",
-      name: "אורי שמאות נזקים",
+      name: SITE_NAME,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}${SITE_LOGO_PATH}`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blog/${post.slug}`,
     },
     inLanguage: "he-IL",
   };
