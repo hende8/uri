@@ -50,6 +50,18 @@ export async function POST(request: Request) {
     );
   }
 
+  const recipients = notifyEmail
+    .split(",")
+    .map((entry) => entry.trim())
+    .filter(Boolean);
+
+  if (recipients.length === 0) {
+    return NextResponse.json(
+      { error: "שירות שליחת הפנייה אינו זמין כרגע." },
+      { status: 500 },
+    );
+  }
+
   const resend = new Resend(apiKey);
   const html = `
     <div dir="rtl" style="font-family: sans-serif; line-height: 1.6;">
@@ -65,7 +77,7 @@ export async function POST(request: Request) {
 
   const { error } = await resend.emails.send({
     from: fromEmail,
-    to: notifyEmail,
+    to: recipients,
     subject: subject || `פנייה חדשה מ-${name}`,
     html,
     text,
