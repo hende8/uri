@@ -10,7 +10,10 @@ import {
 } from "@/lib/site";
 import { Metadata } from "next";
 import { Heebo } from "next/font/google";
+import Script from "next/script";
 import "../styles/index.css";
+
+const GA_MEASUREMENT_ID = "G-767D2ZE081";
 
 const heebo = Heebo({
   subsets: ["hebrew", "latin"],
@@ -98,6 +101,18 @@ export default function RootLayout({
       <head />
 
       <body className={`bg-white ${heebo.className}`}>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
