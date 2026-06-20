@@ -1,5 +1,6 @@
 "use client";
 
+import { trackContactFormSubmit } from "@/lib/analytics";
 import { FormEvent, useState } from "react";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -40,6 +41,7 @@ const Contact = () => {
       setStatus("success");
       setName("");
       setPhone("");
+      trackContactFormSubmit();
     } catch (error) {
       setStatus("error");
       setErrorMessage(

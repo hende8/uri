@@ -19,6 +19,30 @@ Newest entries on top.
 
 ---
 
+## 2026-06-20 — Google Ads conversion tracking
+
+**What:** Wired Google Ads (AW-714018549) alongside the existing GA4 tag and added a `trackContactFormSubmit()` helper that fires on contact form success. The conversion label is still a placeholder pending the user creating the website conversion action in the Ads UI.
+
+**Why:** Running paid search to drive contact form submissions. Without conversion tracking, Smart Bidding has no signal and money burns on low-intent clicks. Reused the existing inline gtag init script rather than adding a second tag manager.
+
+**Files:**
+- `src/app/layout.tsx` — `GOOGLE_ADS_ID = "AW-714018549"` constant next to `GA_MEASUREMENT_ID`. Inline init script now calls `gtag('config', AW)` after the GA4 config, and assigns `window.gtag = gtag` so client components can call it.
+- `src/lib/analytics.ts` — `trackContactFormSubmit()` calls `window.gtag('event', 'conversion', { send_to: 'AW-714018549/<LABEL>' })` and also a `generate_lead` GA4 event. `GOOGLE_ADS_CONVERSION_LABEL` is still `"YYYY..."` placeholder — must be replaced with the value from the Google Ads conversion action's Event snippet.
+- `src/components/Contact/index.tsx` — calls `trackContactFormSubmit()` immediately after `setStatus("success")` in the `handleSubmit` try block.
+
+**Outstanding manual step (cannot be done from code):**
+1. In Google Ads → Goals → Conversions → Summary → **+ New conversion action** → **Website** (NOT "Google hosted"; the existing "Lead form - Submit" is Google's own lead-form ads, wrong target). Name it `Website contact form`.
+2. On the Tag setup screen → Install yourself → Use Google tag → copy the Event snippet's `send_to` value (the part after the slash).
+3. Paste that value into `GOOGLE_ADS_CONVERSION_LABEL` in `src/lib/analytics.ts`. Redeploy.
+4. Verify with Google Tag Assistant — submit the live form, confirm both `conversion` and `generate_lead` events fire.
+
+**How to extend:**
+- New conversion types (phone clicks, WhatsApp clicks, scroll-depth): add a new exported function to `src/lib/analytics.ts` that calls `window.gtag('event', ...)` and create a matching conversion action in Google Ads. Don't track everything as the same conversion — Ads needs distinct actions to optimize per goal.
+- Multiple gtag IDs (e.g. a second Ads account, Meta Pixel): add another `gtag('config', '...')` line to the inline init script in `layout.tsx`. The script's `window.gtag` already routes by `send_to`.
+- If switching to Google Tag Manager later: remove the inline init script + the `googletagmanager.com/gtag/js` Script tag, add the GTM container snippet, and reimplement `trackContactFormSubmit` using `window.dataLayer.push({ event: 'contact_form_submit' })` instead of `gtag('event', ...)`.
+
+---
+
 ## 2026-06-09 — Technical SEO infrastructure
 
 **What:** Added centralized site constants, dynamic sitemap, robots.txt, metadataBase, canonical URLs and per-page `og:url` on every page, Google Search Console verification, ProfessionalService JSON-LD in the root layout, and Article + FAQPage JSON-LD on blog posts (with absolute image URLs, publisher.logo, mainEntityOfPage).

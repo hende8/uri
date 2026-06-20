@@ -15,6 +15,8 @@ import "../styles/index.css";
 
 const GA_MEASUREMENT_ID = "G-767D2ZE081";
 
+const GOOGLE_ADS_ID = "AW-714018549";
+
 const heebo = Heebo({
   subsets: ["hebrew", "latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
@@ -109,8 +111,10 @@ export default function RootLayout({
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
             gtag('js', new Date());
             gtag('config', '${GA_MEASUREMENT_ID}');
+            gtag('config', '${GOOGLE_ADS_ID}');
           `}
         </Script>
         <script
