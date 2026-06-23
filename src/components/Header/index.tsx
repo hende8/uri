@@ -1,4 +1,5 @@
 "use client";
+import { trackContactClick } from "@/lib/analytics";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -143,6 +144,7 @@ const Header = () => {
             <div className="flex items-center justify-end gap-2 ps-16 lg:ps-0">
               <a
                 href="tel:+972506273002"
+                onClick={() => trackContactClick()}
                 className="hidden px-5 py-3 text-base font-semibold text-dark transition hover:text-primary md:block"
               >
                 050-6273002

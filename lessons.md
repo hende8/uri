@@ -19,6 +19,28 @@ Newest entries on top.
 
 ---
 
+## 2026-06-23 — Contact click conversion tracking
+
+**What:** Added a second Google Ads conversion (`conversion_event_contact`) fired on every "contact action" — phone clicks, WhatsApp click, mailto-less but present on tel/wa links across the site. Form submit now fires both conversions (lead form + contact click).
+
+**Why:** Phone/WhatsApp clicks are softer than form submits but still valuable leads — without tracking them, Smart Bidding has no signal for the "user got contact info" intent. Keeping it as a Secondary conversion in Ads so it informs the algorithm without being optimized as the primary goal.
+
+**Files:**
+- `src/lib/analytics.ts` — new `trackContactClick(url?: string)`. With no arg, fires the event and lets the browser handle the link (works for `tel:`, `mailto:`, target="_blank" wa.me — the page doesn't unload). With a url arg, fires the event then `window.location.href = url` after the gtag callback (or 2s timeout). `trackContactFormSubmit()` now also calls `trackContactClick()` so both conversions fire on form success.
+- `src/components/Header/index.tsx` — phone link `onClick={() => trackContactClick()}`.
+- `src/components/Footer/index.tsx` — phone icon, WhatsApp icon, phone text-link in ניווט מהיר all wired. Mailto deliberately NOT wired — accidental clicks aren't meaningful conversions.
+
+**Deliberately skipped:**
+- Terms page phone link — server component, not worth the client conversion for a low-traffic terms route.
+- Footer mailto link — high false-positive rate (people misclick mail icons).
+
+**How to extend:**
+- New contact CTA (e.g. a fixed-position WhatsApp bubble, a "call now" button on a landing page): add `onClick={() => trackContactClick()}` to the element. No URL arg needed for `tel:` / `mailto:` / target="_blank" — they don't unload the page.
+- If you ever add a link that DOES navigate away in the current tab (e.g. external referral link), use `onClick={(e) => { e.preventDefault(); trackContactClick(href); }}` so the helper handles navigation after the event sends.
+- Conversion priority: in Ads → Conversions, "Website contact form" should be Primary, "Contact" should be Secondary. Both as Primary = double-counting and over-aggressive bidding.
+
+---
+
 ## 2026-06-20 — Google Ads conversion tracking
 
 **What:** Wired Google Ads (AW-714018549) alongside the existing GA4 tag and added a `trackContactFormSubmit()` helper that fires on contact form success. The conversion label is still a placeholder pending the user creating the website conversion action in the Ads UI.
