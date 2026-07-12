@@ -1,3 +1,5 @@
+import posthog from "posthog-js";
+
 type GtagFn = (
   command: string,
   eventName: string,
@@ -11,13 +13,17 @@ declare global {
 }
 
 export function trackContactFormSubmit() {
-  if (typeof window === "undefined" || typeof window.gtag !== "function") {
+  if (typeof window === "undefined") {
     return;
   }
 
-  window.gtag("event", "generate_lead", {
-    form_id: "contact",
-  });
+  posthog.capture("lead_submitted", { form_id: "contact" });
+
+  if (typeof window.gtag === "function") {
+    window.gtag("event", "generate_lead", {
+      form_id: "contact",
+    });
+  }
 }
 
 // Fires the "Contact" Google Ads conversion. Use on tel:/wa.me/mailto clicks
