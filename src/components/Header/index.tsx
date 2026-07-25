@@ -11,6 +11,10 @@ const Header = () => {
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
   };
+  const closeNavbar = () => {
+    setNavbarOpen(false);
+    setOpenIndex(-1);
+  };
 
   const [sticky, setSticky] = useState(false);
   const handleStickyNavbar = () => {
@@ -95,6 +99,7 @@ const Header = () => {
                       {menuItem.path ? (
                         <Link
                           href={menuItem.path}
+                          onClick={closeNavbar}
                           className={`flex py-2 text-base lg:inline-flex lg:px-0 lg:py-6 ${usePathName === menuItem.path
                             ? "text-primary"
                             : "text-dark hover:text-primary"
@@ -128,6 +133,7 @@ const Header = () => {
                               <Link
                                 href={submenuItem.path}
                                 key={index}
+                                onClick={closeNavbar}
                                 className="text-dark hover:text-primary block rounded-sm py-2.5 text-sm lg:px-3"
                               >
                                 {submenuItem.title}
