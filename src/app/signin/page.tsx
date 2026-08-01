@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "כניסה לאזור האישי | אורי שמאות נזקים",
+  title: "כניסה לאזור האישי | אורי שמאות רכוש",
   description: "כניסה לאזור הלקוח לעיון בתיק התביעה.",
 };
 

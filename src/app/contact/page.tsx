@@ -3,7 +3,7 @@ import Contact from "@/components/Contact";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "צרו קשר | אורי שמאות נזקים",
+  title: "צרו קשר | אורי שמאות רכוש",
   description: "השאירו פרטים לקבלת ייעוץ ראשוני וביקור בזירת הנזק.",
   alternates: {
     canonical: "/contact",

@@ -51,7 +51,7 @@ const Header = () => {
           <div className="w-60 max-w-full px-4 xl:ms-12">
             <Link
               href="/"
-              aria-label="אורי שמאות נזקים — דף הבית"
+              aria-label="אורי שמאות רכוש — דף הבית"
               className={`header-logo flex items-center w-full ${sticky ? "py-2 lg:py-1" : "py-4"
                 } `}
             >

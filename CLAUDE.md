@@ -3,7 +3,7 @@
 ## What this is
 
 Marketing site for an independent property damage appraisal business
-("אורי שמאות נזקים" — Uri Damage Appraisal). The business represents
+("אורי שמאות רכוש" — Uri Property Appraisal). The business represents
 insureds against insurance companies for water, fire, burglary, and
 natural-disaster damage claims.
 

@@ -21,7 +21,7 @@ export const generateMetadata = async ({
   const post = getPostBySlug(slug);
   if (!post) return {};
   return {
-    title: `${post.metaTitle} | אורי שמאות נזקים`,
+    title: `${post.metaTitle} | אורי שמאות רכוש`,
     description: post.metaDescription,
     keywords: [post.primaryKeyword, ...post.secondaryKeywords],
     alternates: {

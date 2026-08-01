@@ -4,7 +4,7 @@ import { allPosts } from "@/data/posts";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "מאמרים | אורי שמאות נזקים",
+  title: "מאמרים | אורי שמאות רכוש",
   description: "טיפים ומדריכים בעולם שמאות הנזקים והתביעות מול חברות הביטוח.",
   alternates: {
     canonical: "/blog",

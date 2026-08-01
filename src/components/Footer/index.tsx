@@ -12,7 +12,7 @@ const Footer = () => {
             <div className="mb-12 max-w-[360px] lg:mb-16">
               <Link
                 href="/"
-                aria-label="אורי שמאות נזקים — דף הבית"
+                aria-label="אורי שמאות רכוש — דף הבית"
                 className="mb-8 inline-block"
               >
                 <Image
@@ -171,7 +171,7 @@ const Footer = () => {
         <div className="h-px w-full bg-stroke-stroke"></div>
         <div className="py-8">
           <p className="text-center text-sm text-body-color">
-            © {new Date().getFullYear()} אורי שמאות נזקים. כל הזכויות שמורות.
+            © {new Date().getFullYear()} אורי שמאות רכוש. כל הזכויות שמורות.
           </p>
         </div>
       </div>

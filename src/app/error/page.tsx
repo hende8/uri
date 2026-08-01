@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "הדף לא נמצא | אורי שמאות נזקים",
+  title: "הדף לא נמצא | אורי שמאות רכוש",
   description: "הדף שחיפשתם אינו זמין.",
 };
 

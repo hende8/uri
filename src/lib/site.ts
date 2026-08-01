@@ -2,7 +2,7 @@
 // and Organization JSON-LD.
 export const SITE_URL = "https://www.urishamaut.co.il";
 
-export const SITE_NAME = "אורי שמאות נזקים";
+export const SITE_NAME = "אורי שמאות רכוש";
 
 export const SITE_DESCRIPTION =
   "משרד שמאות עצמאי המתמחה בהערכת נזקי מים, שריפה, פריצה ונזקי טבע, וליווי מלא של תביעות מול חברות הביטוח.";
