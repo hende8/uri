@@ -1,5 +1,5 @@
 "use client";
-import { trackContactClick } from "@/lib/analytics";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 const WHATSAPP_NUMBER = "972506273002";
 const PREFILLED_MESSAGE = "היי, הגעתי מהאתר אני אשמח להתייעץ";
@@ -22,7 +22,7 @@ const WhatsAppButton = ({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={() => trackContactClick()}
+      onClick={() => trackWhatsAppClick()}
       className={`inline-flex items-center justify-center gap-3 rounded-sm bg-[#25D366] px-9 py-4 text-base font-semibold text-white shadow-btn transition duration-300 hover:bg-[#1EBE5D] hover:shadow-btn-hover ${className}`}
     >
       <svg

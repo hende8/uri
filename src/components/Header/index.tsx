@@ -1,5 +1,5 @@
 "use client";
-import { trackContactClick } from "@/lib/analytics";
+import { trackCallClick, trackWhatsAppClick } from "@/lib/analytics";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -153,7 +153,7 @@ const Header = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="שליחת וואטסאפ"
-                onClick={() => trackContactClick()}
+                onClick={() => trackWhatsAppClick()}
                 className="me-2 hidden h-10 w-10 items-center justify-center rounded-full text-[#25D366] transition hover:bg-[#25D366]/10 md:flex"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -162,7 +162,7 @@ const Header = () => {
               </a>
               <a
                 href="tel:+972506273002"
-                onClick={() => trackContactClick()}
+                onClick={() => trackCallClick()}
                 className="ease-in-up hidden items-center gap-2 rounded-sm bg-primary px-7 py-3 text-base font-semibold text-white shadow-btn transition duration-300 hover:bg-secondary hover:shadow-btn-hover md:flex md:px-8 lg:px-6 xl:px-8"
               >
                 050-6273002

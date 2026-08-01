@@ -26,10 +26,10 @@ export function trackContactFormSubmit() {
   }
 }
 
-// Fires the "Contact" Google Ads conversion. Use on tel:/wa.me/mailto clicks
-// and any other "contact action". Safe to call without a url — returns
-// immediately if gtag isn't loaded yet.
-export function trackContactClick(url?: string): boolean {
+// Fires a Google Ads conversion event. Safe to call without a url — returns
+// immediately if gtag isn't loaded yet. When a url is passed it navigates via
+// event_callback so the conversion has a chance to register before leaving.
+function fireAdsConversion(eventName: string, url?: string): boolean {
   if (typeof window === "undefined" || typeof window.gtag !== "function") {
     return true;
   }
@@ -40,10 +40,25 @@ export function trackContactClick(url?: string): boolean {
     }
   };
 
-  window.gtag("event", "conversion_event_contact", {
+  window.gtag("event", eventName, {
     event_callback: navigate,
     event_timeout: 2000,
   });
 
   return typeof url !== "string";
+}
+
+// Google Ads conversion for WhatsApp clicks.
+export function trackWhatsAppClick(url?: string): boolean {
+  return fireAdsConversion("conversion_event_whatsapp", url);
+}
+
+// Google Ads conversion for phone-call (tel:) clicks.
+export function trackCallClick(url?: string): boolean {
+  return fireAdsConversion("conversion_event_phone_call", url);
+}
+
+// Generic "Contact" conversion — used for other contact actions (e.g. email).
+export function trackContactClick(url?: string): boolean {
+  return fireAdsConversion("conversion_event_contact", url);
 }

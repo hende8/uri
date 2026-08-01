@@ -1,5 +1,5 @@
 "use client";
-import { trackContactClick } from "@/lib/analytics";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 const WHATSAPP_NUMBER = "972506273002";
 const PREFILLED_MESSAGE = "היי, הגעתי מהאתר אני אשמח להתייעץ";
@@ -15,7 +15,7 @@ const FloatingWhatsApp = () => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="שליחת וואטסאפ"
-      onClick={() => trackContactClick()}
+      onClick={() => trackWhatsAppClick()}
       className="fixed bottom-6 start-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition duration-300 hover:scale-105 hover:bg-[#1EBE5D]"
     >
       <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

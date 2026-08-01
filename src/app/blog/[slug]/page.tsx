@@ -1,5 +1,4 @@
 import MarkdownBody from "@/components/Blog/MarkdownBody";
-import SharePost from "@/components/Blog/SharePost";
 import TagButton from "@/components/Blog/TagButton";
 import { getAllSlugs, getPostBySlug } from "@/data/posts";
 import { formatHebrewDate } from "@/lib/hebrew-date";
@@ -196,14 +195,6 @@ const BlogPostPage = async ({ params }: Props) => {
                     {post.tags.map((tag) => (
                       <TagButton key={tag} text={tag} />
                     ))}
-                  </div>
-                </div>
-                <div className="mb-5">
-                  <h5 className="text-body-color mb-3 text-sm font-medium sm:text-right">
-                    שתפו את המאמר:
-                  </h5>
-                  <div className="flex items-center sm:justify-end">
-                    <SharePost />
                   </div>
                 </div>
               </div>

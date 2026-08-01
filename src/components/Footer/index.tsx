@@ -1,5 +1,5 @@
 "use client";
-import { trackContactClick } from "@/lib/analytics";
+import { trackCallClick, trackWhatsAppClick } from "@/lib/analytics";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -34,7 +34,7 @@ const Footer = () => {
                   aria-label="ווטסאפ"
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackContactClick()}
+                  onClick={() => trackWhatsAppClick()}
                   className="text-body-color duration-300 hover:text-primary"
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -44,7 +44,7 @@ const Footer = () => {
                 <a
                   href="tel:+972506273002"
                   aria-label="טלפון"
-                  onClick={() => trackContactClick()}
+                  onClick={() => trackCallClick()}
                   className="text-body-color duration-300 hover:text-primary"
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -149,7 +149,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="tel:+972506273002"
-                    onClick={() => trackContactClick()}
+                    onClick={() => trackCallClick()}
                     className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary"
                   >
                     050-6273002

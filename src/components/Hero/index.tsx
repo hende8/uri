@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import WhatsAppButton from "@/components/Common/WhatsAppButton";
-import { trackContactClick } from "@/lib/analytics";
+import { trackCallClick } from "@/lib/analytics";
 
 const Hero = () => {
   return (
@@ -24,7 +24,7 @@ const Hero = () => {
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <a
                   href="tel:+972506273002"
-                  onClick={() => trackContactClick()}
+                  onClick={() => trackCallClick()}
                   className="inline-flex items-center justify-center gap-2 rounded-sm bg-primary px-9 py-4 text-base font-semibold text-white shadow-btn transition duration-300 hover:bg-secondary hover:shadow-btn-hover"
                 >
                   קבלת ייעוץ חינם
