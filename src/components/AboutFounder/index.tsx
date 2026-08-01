@@ -14,9 +14,18 @@ const AboutFounder = () => {
               paragraph=" אני מלווה בעלי דירות, בתים ועסקים בכל שלבי תביעת הביטוח – מהבדיקה הראשונית בזירת הנזק, דרך תיעוד מקצועי והכנת חוות דעת, ועד מימוש מלא של הפיצוי המגיע. המשרד פועל אך ורק עבור המבוטח, ללא תלות בחברות הביטוח."
               mb="24px"
             />
-            <p className="mb-8 text-lg font-bold text-primary md:text-xl">
-              בעל הכשרה מקצועית כשמאי רכוש מוסמך
-            </p>
+            <div className="mb-8 flex items-center gap-4">
+              <Image
+                src="/images/badges/property-assessors-association.png"
+                alt="חבר איגוד שמאי הרכוש בישראל"
+                width={72}
+                height={72}
+                className="h-16 w-16 shrink-0 object-contain"
+              />
+              <p className="text-lg font-bold text-primary md:text-xl">
+                שמאי רכוש מוסמך, חבר איגוד שמאי הרכוש בישראל
+              </p>
+            </div>
             <ul className="space-y-3 text-base leading-relaxed text-body-color sm:text-lg">
               <li className="flex items-start gap-3">
                 <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />

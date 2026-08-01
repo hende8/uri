@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import WhatsAppButton from "@/components/Common/WhatsAppButton";
 
@@ -12,12 +13,12 @@ const Hero = () => {
           <div className="w-full px-4">
             <div className="mx-auto max-w-[820px] text-center">
               <h1 className="mb-6 text-4xl font-extrabold leading-[1.15] text-black sm:text-5xl sm:leading-[1.15] md:text-[56px] md:leading-[1.1]">
-                שמאות נזקי רכוש מקצועית, אובייקטיבית ומהירה
+                נזק לרכוש? נדאג שתקבלו את הפיצוי המלא
               </h1>
               <p className="mx-auto mb-12 max-w-[680px] text-base leading-relaxed text-body-color sm:text-lg md:text-xl">
                 אנחנו מלווים בעלי דירות, בתים ועסקים בכל תהליך הערכת הנזק
                 מול חברת הביטוח – מהבדיקה הראשונית בזירה, דרך תיעוד מקיף
-                של הנזק ועד לקבלת הפיצוי המלא שמגיע לכם על פי תנאי הפוליסה.
+                של הנזק ועד לקבלת הפיצוי המלא שמגיע לכם.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link
@@ -26,7 +27,18 @@ const Hero = () => {
                 >
                   קבלת ייעוץ חינם
                 </Link>
-                <WhatsAppButton />
+                <div className="hidden sm:block">
+                  <WhatsAppButton />
+                </div>
+              </div>
+              <div className="mt-10 flex items-center justify-center">
+                <Image
+                  src="/images/badges/property-assessors-association.png"
+                  alt="חבר איגוד שמאי הרכוש בישראל"
+                  width={140}
+                  height={140}
+                  className="h-32 w-32 object-contain sm:h-36 sm:w-36"
+                />
               </div>
             </div>
           </div>

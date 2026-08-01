@@ -1,3 +1,4 @@
+import FloatingWhatsApp from "@/components/Common/FloatingWhatsApp";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -128,6 +129,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </div>
+        <FloatingWhatsApp />
         <ScrollToTop />
       </body>
     </html>

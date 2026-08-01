@@ -1,7 +1,5 @@
-import About from "@/components/About";
+// import About from "@/components/About";
 import AboutFounder from "@/components/AboutFounder";
-import Process from "@/components/Process";
-import WhyChooseUs from "@/components/WhyChooseUs";
 
 import { Metadata } from "next";
 
@@ -20,9 +18,7 @@ const AboutPage = () => {
   return (
     <main className="pt-[100px] md:pt-[120px]">
       <AboutFounder />
-      <About />
-      <WhyChooseUs />
-      <Process />
+      {/* <About /> */}
     </main>
   );
 };

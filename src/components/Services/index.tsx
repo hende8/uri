@@ -6,7 +6,7 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="bg-white py-16 md:py-20 lg:py-28"
+      className="bg-white pb-16 pt-4 md:pb-20 md:pt-6 lg:pb-28 lg:pt-8"
     >
       <div className="container">
         <SectionTitle

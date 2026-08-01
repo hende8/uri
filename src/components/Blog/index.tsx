@@ -14,8 +14,7 @@ const Blog = () => {
     >
       <div className="container">
         <SectionTitle
-          eyebrow="מאמרים ומדריכים"
-          title="מאמרים אחרונים מהבלוג"
+          title="מאמרים"
           paragraph="טיפים, מדריכים וסיפורי מקרה מעולם שמאות הנזקים – כל מה שכדאי לדעת לפני, במהלך ואחרי הגשת תביעה לחברת הביטוח."
           center
           mb="72px"

@@ -1,10 +1,10 @@
-import About from "@/components/About";
 import Blog from "@/components/Blog";
 import ScrollUp from "@/components/Common/ScrollUp";
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import Process from "@/components/Process";
 import Services from "@/components/Services";
+import Testimonials from "@/components/Testimonials";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import { Metadata } from "next";
 
@@ -25,7 +25,7 @@ export default function Home() {
       <Services />
       <WhyChooseUs />
       <Process />
-      <About />
+      <Testimonials />
       <Contact />
       <Blog />
     </>

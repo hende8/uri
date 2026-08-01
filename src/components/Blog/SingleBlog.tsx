@@ -37,7 +37,6 @@ const SingleBlog = ({ post }: { post: Post }) => {
             <h4 className="text-sm font-semibold text-dark">
               {author.name}
             </h4>
-            <p className="text-xs text-body-color">{author.designation}</p>
           </div>
           <span className="text-xs font-medium text-body-color">
             {formatHebrewDate(publishDate)}
