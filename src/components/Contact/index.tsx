@@ -1,5 +1,6 @@
 "use client";
 
+import WhatsAppButton from "@/components/Common/WhatsAppButton";
 import { trackContactFormSubmit } from "@/lib/analytics";
 import { FormEvent, useState } from "react";
 
@@ -122,13 +123,16 @@ const Contact = () => {
                     </div>
                   </div>
                   <div className="w-full px-4 text-center">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="inline-flex items-center justify-center rounded-sm bg-primary px-10 py-4 text-base font-semibold text-white shadow-submit transition duration-300 hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-60"
-                    >
-                      {isSubmitting ? "שולח..." : "שליחת פנייה"}
-                    </button>
+                    <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="inline-flex items-center justify-center rounded-sm bg-primary px-10 py-4 text-base font-semibold text-white shadow-submit transition duration-300 hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-60"
+                      >
+                        {isSubmitting ? "שולח..." : "שליחת פנייה"}
+                      </button>
+                      <WhatsAppButton />
+                    </div>
                     {status === "success" && (
                       <p className="mt-6 text-sm font-medium text-primary">
                         ההודעה נשלחה. נחזור אליכם בהקדם.

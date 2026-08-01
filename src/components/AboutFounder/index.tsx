@@ -1,5 +1,6 @@
 import Image from "next/image";
 import SectionTitle from "../Common/SectionTitle";
+import WhatsAppButton from "../Common/WhatsAppButton";
 
 const AboutFounder = () => {
   return (
@@ -30,6 +31,9 @@ const AboutFounder = () => {
                 ליווי אישי לאורך כל התהליך, עם דיווחים שוטפים בכל שלב.
               </li>
             </ul>
+            <div className="mt-8">
+              <WhatsAppButton />
+            </div>
           </div>
           <div className="w-full px-4 lg:w-1/2">
             <div className="relative mx-auto mt-12 aspect-[4/5] max-w-[440px] overflow-hidden rounded-sm shadow-lg lg:mt-0">

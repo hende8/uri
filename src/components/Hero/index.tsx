@@ -1,4 +1,5 @@
 import Link from "next/link";
+import WhatsAppButton from "@/components/Common/WhatsAppButton";
 
 const Hero = () => {
   return (
@@ -29,12 +30,7 @@ const Hero = () => {
                 >
                   קבלת ייעוץ חינם
                 </Link>
-                <Link
-                  href="/#services"
-                  className="inline-flex items-center justify-center rounded-sm border border-primary bg-white px-9 py-4 text-base font-semibold text-primary transition duration-300 hover:bg-primary hover:text-white"
-                >
-                  תחומי השמאות שלנו
-                </Link>
+                <WhatsAppButton />
               </div>
             </div>
           </div>
