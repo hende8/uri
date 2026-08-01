@@ -117,6 +117,38 @@ Testimonials) without an explicit ask.
   goal is so the next session can read `lessons.md` and understand the
   why behind the architecture without reverse-engineering the diff.
 
+## Analytics & Google Ads conversions
+
+Tracking is centralized in `src/lib/analytics.ts`. The Google tag
+(`gtag`) is loaded once in `src/app/layout.tsx`:
+
+- GA4 measurement id: `G-767D2ZE081`
+- Google Ads id: `AW-714018549`
+
+Conversion helpers (all no-op safely if `gtag` isn't loaded, and use
+`event_callback`/`event_timeout` so the hit registers before navigation):
+
+| Helper | Event fired | Wired to |
+|---|---|---|
+| `trackWhatsAppClick()` | `conversion_event_whatsapp` | every WhatsApp link — `WhatsAppButton`, `FloatingWhatsApp`, nav icon, footer |
+| `trackCallClick()` | `conversion_event_phone_call` | every `tel:` link — nav call button, hero CTA, footer |
+| `trackContactClick()` | `conversion_event_contact` | generic/email fallback (kept, largely unused) |
+| `trackContactFormSubmit()` | GA4 `generate_lead` + PostHog `lead_submitted` | contact form submit |
+
+The event names use Google Ads' `conversion_event_<name>` convention.
+In Google Ads these are set up as **website** conversion actions
+created **"with code"** (the site fires them itself — do NOT use the
+no-code / "Conversions from phone calls" forwarding-number path).
+Category mapping: WhatsApp → **Contact**, Call → **Phone call lead**.
+Events only appear in the Ads UI after the code is deployed live and
+the button is clicked once.
+
+**Sitewide voice:** homepage/services/why-us copy is first-person
+singular / neutral ("אני", "ליווי של…") — the business is a single
+appraiser, so avoid "המשרד"/"אנחנו" (office/team) framing in
+customer-facing copy. `terms/page.tsx` is the exception: "המשרד" is a
+defined legal term there.
+
 ## Local dev
 
 ```
