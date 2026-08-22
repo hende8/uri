@@ -1,25 +1,24 @@
-import SectionTitle from "../Common/SectionTitle";
-import SingleService from "./SingleService";
+import SectionHeading from "../Common/SectionHeading";
 import servicesData from "./servicesData";
 
 const Services = () => {
   return (
-    <section
-      id="services"
-      className="bg-white pb-16 pt-4 md:pb-20 md:pt-6 lg:pb-28 lg:pt-8"
-    >
+    <section id="services" className="bg-white py-16 md:py-20 lg:py-28">
       <div className="container">
-        <SectionTitle
-          title="תחומי השמאות"
-          paragraph="ליווי מקצועי במגוון רחב של תיקי שמאות נזקי רכוש – מנזקי מים יומיומיים ועד תיקים מורכבים של אובדן רכוש ושריפה. בכל תיק תקבלו יחס אישי, הכשרה כשמאי רכוש מוסמך וליווי צמוד מהפנייה הראשונה ועד קבלת הפיצוי."
-          center
-          mb="72px"
-        />
+        <div className="max-w-[1080px]">
+          <SectionHeading title="תחומי השמאות" />
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {servicesData.map((service) => (
-            <SingleService key={service.id} service={service} />
-          ))}
+          <ul className="mt-10 grid md:mt-12 md:grid-cols-2 md:gap-x-16">
+            {servicesData.map((service) => (
+              <li
+                key={service.id}
+                className="flex items-center gap-3 border-t border-black/10 py-5 text-lg font-semibold text-black md:text-xl"
+              >
+                <span className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                {service.title}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

@@ -1,4 +1,3 @@
-import Blog from "@/components/Blog";
 import ScrollUp from "@/components/Common/ScrollUp";
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
@@ -22,12 +21,11 @@ export default function Home() {
     <>
       <ScrollUp />
       <Hero />
-      <Services />
       <WhyChooseUs />
+      <Services />
       <Process />
       <Testimonials />
       <Contact />
-      <Blog />
     </>
   );
 }

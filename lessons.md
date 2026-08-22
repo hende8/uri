@@ -122,3 +122,53 @@ Newest entries on top.
 - Hebrew typography: ״״ for quotes, גרשיים (״) for acronyms, no em-dashes.
 
 **Legacy routes intentionally left alone:** `/blog-details` and `/blog-sidebar` still exist as placeholder pages from the template. They're disallowed in robots.txt and not linked from anywhere. Don't waste time on them; they'll be removed in a future cleanup.
+
+---
+
+## 2026-08-21 — Hero redesign: editorial composition + motion utilities
+
+**What:** Replaced the centered template hero with an editorial, typography-led composition, and added two `@keyframes` + two `@utility` blocks to `src/styles/index.css` to support it.
+
+**Why:** The centered stack (headline → paragraph → two pill buttons → dot bullets → badge, all on one axis) is the strongest visual tell of template/generated output, and it buried the one idea the business sells. The new hero leads with the asymmetry — *the insurer's appraiser is not your appraiser* — and structures the rest as a masthead: hairline rules, a byline block with the real portrait and the association seal, then the CTA row.
+
+**Files:** `src/components/Hero/index.tsx`, `src/styles/index.css`.
+
+**The utilities:**
+- `hero-lead` / `hero-rise` — the staged entrance. **`hero-lead` deliberately never animates `opacity`** — it is applied to the LCP heading, and an `opacity: 0` start would push the LCP timestamp to the end of the animation. Use `hero-lead` for whatever the LCP element is and `hero-rise` (which does fade) only for elements below it.
+- Stagger via `[animation-delay:Nms]` on the element, not new utilities.
+- The `@media (prefers-reduced-motion: reduce)` block at the bottom of the file is **unlayered on purpose** — unlayered rules beat Tailwind's layered utilities in the cascade, so `animation: none` wins without `!important`. Add any new hero animation class to that selector list.
+
+**Composition conventions worth reusing:**
+- The h1 overrides the global `letter-spacing: -0.02em` with `tracking-[0]`. Hebrew has no ascenders/descenders to absorb tightening; at Heebo 800/80px the counters of ס/ם/ט start to close.
+- Emphasis is a solid `bg-accent` block with `text-black` (7.86:1), not gold text — gold on white is 2.1:1 and fails as text at any size.
+- Structure comes from full-width `h-px bg-stroke-stroke` rules, not cards. `.container` has no max-width in this project, so hero content aligns to the same gutters as the header.
+
+**Things deliberately NOT done, still open:**
+- Page has no `<main>` landmark (`landmark-one-main` fails in Lighthouse). Layout-level fix in `src/app/layout.tsx`.
+- No sticky mobile contact bar; past the hero the only persistent affordance is the floating WhatsApp bubble.
+
+**Known constraint:** WhatsApp green `#25D366` cannot carry white text at AA (1.98:1). `WhatsAppButton` uses `text-black` (`#0B1F3A`, 8.3:1). Do not "fix" it back to white.
+
+**Ads/SEO note:** the h1 no longer contains the phrase `נזק לרכוש`. The damage keywords (`נזקי מים, שריפה, פריצה, נזקי טבע`) were moved into the hero supporting paragraph on purpose so on-page relevance survives the headline change. Keep them there.
+
+---
+
+## 2026-08-21 — Homepage section language: `SectionHeading` replaces `SectionTitle`
+
+**What:** New `src/components/Common/SectionHeading.tsx`, adopted by Services, Why Choose Us, Process, Testimonials, Contact, and the homepage Blog teaser. `SectionTitle` still exists and is still used by `About` and `AboutFounder` on `/about`.
+
+**Why:** `SectionTitle` renders an eyebrow (`accent-rule` + uppercase label) above every heading and centres by default. That pattern, repeated on six homepage sections, was the loudest "assembled from a template" signal on the page, and it contradicted the redesigned Hero. `SectionHeading` has no eyebrow, aligns to the start (right in RTL), and constrains the heading to a 22ch measure so it wraps deliberately.
+
+**The rules of this language — follow them for any new homepage section:**
+- **No eyebrows.** The heading carries its own weight. If a section needs a label above the heading, the heading is wrong.
+- **Structure comes from hairlines, not cards.** `border-t border-black/10` on list items, `last:border-b` to close the run. `black/10` reads correctly on both `bg-white` and `bg-gray-light`, which `stroke-stroke` does not.
+- **No uniform card grids.** Services is a rule-separated index, Testimonials are rule-separated pull-quotes, Process is three rule-topped columns. All were `grid + border + shadow-two` cards before.
+- **Headings override the global tracking** with `tracking-[0]` — Hebrew closes up under the inherited `-0.02em`.
+- **Gold is a solid stamp or a 6px dot. Never text, never a rule under a label.** `#D4AF37` on white is 2.1:1.
+- Alternating section backgrounds (white / `gray-light`) are unchanged, per the Theme section of CLAUDE.md.
+
+**Dead code removed in the same pass:** `Services/SingleService.tsx` (rendered only the title, discarding each service's `paragraph`), the `icon` field on every entry in `servicesData.tsx`, and `icon` on the `Service` type. The service paragraphs were written but never displayed; the new index uses them.
+
+**Photography — the open item.** `Process` previously rendered `about-image-process.jpg` (a generic stock clipboard shot); the redesign gave it a full-width band, which made the stock quality more obvious, so the image was removed rather than featured. `WhyChooseUs` still uses `about-image-blueprint.jpg`, marked `TODO(photo)`. Both slots want real photos from Uri's own jobs. Stock imagery is a stronger "assembled" signal than any layout choice — prefer no image to a stock one.
+
+**Voice fixes applied while rewriting:** `אנחנו מנהלים` → `אני מנהל` (Process step 2), `ספרו לנו` → `ספרו לי` and `נחזור אליכם` → `אחזור אליכם` (Contact), per the first-person-singular rule in CLAUDE.md. The Footer still says `אנחנו דואגים` — not yet rewritten.

@@ -1,64 +1,48 @@
 import Image from "next/image";
-import SectionTitle from "../Common/SectionTitle";
+import SectionHeading from "../Common/SectionHeading";
 
-const checkIcon = (
-  <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
-    <path d="M5.8535 12.6631C5.65824 12.8584 5.34166 12.8584 5.1464 12.6631L0.678505 8.1952C0.483242 7.99994 0.483242 7.68336 0.678505 7.4881L2.32921 5.83739C2.52467 5.64193 2.84166 5.64216 3.03684 5.83791L5.14622 7.95354C5.34147 8.14936 5.65859 8.14952 5.85403 7.95388L13.3797 0.420561C13.575 0.22513 13.8917 0.225051 14.087 0.420383L15.7381 2.07143C15.9333 2.26669 15.9333 2.58327 15.7381 2.77854L5.8535 12.6631Z" />
-  </svg>
-);
+const proofPoints = [
+  "שמאות בלתי תלויה",
+  "תיעוד מקצועי בזירה",
+  "ייצוג מול חברת הביטוח",
+  "חוות דעת קבילות",
+  "טיפול בתביעות מורכבות",
+  "זמינות לאורך כל התהליך",
+];
 
 const WhyChooseUs = () => {
-  const List = ({ text }) => (
-    <p className="mb-5 flex items-center gap-3 text-base font-medium text-dark">
-      <span className="flex h-[28px] w-[28px] shrink-0 items-center justify-center rounded-sm bg-primary text-white">
-        {checkIcon}
-      </span>
-      {text}
-    </p>
-  );
-
   return (
-    <section
-      id="why-us"
-      className="bg-gray-light py-16 md:py-20 lg:py-28"
-    >
+    <section id="why-us" className="bg-gray-light py-16 md:py-20 lg:py-28">
       <div className="container">
-        <div className="-mx-4 flex flex-wrap items-center">
-          <div className="w-full px-4 lg:w-1/2">
-            <SectionTitle
-              eyebrow="למה לבחור בנו"
-              title="נלחם על הפיצוי שלכם – לא על זה של חברת הביטוח"
+        <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-start lg:gap-20">
+          <div>
+            <SectionHeading
+              title="אלחם על הפיצוי שלכם"
               paragraph="פועל כסניגור המקצועי שלכם מול חברות הביטוח. שיטות עבודה מדויקות וניסיון מקצועי מבטיחים שכל נזק מתועד, מוערך ומפוצה במלואו – בלי שתצטרכו להתמודד עם הבירוקרטיה לבד."
-              mb="44px"
             />
 
-            <div className="mb-12 max-w-[570px] lg:mb-0" data-wow-delay=".15s">
-              <div className="mx-[-12px] flex flex-wrap">
-                <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                  <List text="שמאות בלתי תלויה" />
-                  <List text="תיעוד מקצועי בזירה" />
-                  <List text="ייצוג מול חברת הביטוח" />
-                </div>
-
-                <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                  <List text="חוות דעת קבילות" />
-                  <List text="טיפול בתביעות מורכבות" />
-                  <List text="זמינות לאורך כל התהליך" />
-                </div>
-              </div>
-            </div>
+            <ul className="mt-10 grid sm:grid-cols-2 sm:gap-x-10">
+              {proofPoints.map((point) => (
+                <li
+                  key={point}
+                  className="flex items-center gap-3 border-t border-black/10 py-4 text-base font-medium text-dark md:text-lg"
+                >
+                  <span className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                  {point}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="w-full px-4 lg:w-1/2">
-            <div className="relative mx-auto aspect-square max-w-[500px] overflow-hidden rounded-sm lg:ml-0">
-              <Image
-                src="/images/about/about-image-blueprint.jpg"
-                alt="תכנית אדריכלית"
-                fill
-                sizes="(max-width: 992px) 100vw, 500px"
-                className="object-cover"
-              />
-            </div>
+          {/* TODO(photo): replace with a real photo from one of Uri's jobs. */}
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
+            <Image
+              src="/images/about/about-image-blueprint.jpg"
+              alt="תכנית אדריכלית"
+              fill
+              sizes="(max-width: 992px) 100vw, 460px"
+              className="object-cover"
+            />
           </div>
         </div>
       </div>

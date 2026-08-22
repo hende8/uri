@@ -23,7 +23,7 @@ const WhatsAppButton = ({
       target="_blank"
       rel="noopener noreferrer"
       onClick={() => trackWhatsAppClick()}
-      className={`inline-flex items-center justify-center gap-3 rounded-sm bg-[#25D366] px-9 py-4 text-base font-semibold text-white shadow-btn transition duration-300 hover:bg-[#1EBE5D] hover:shadow-btn-hover ${className}`}
+      className={`inline-flex items-center justify-center gap-3 rounded-sm bg-[#25D366] px-9 py-4 text-base font-semibold text-black shadow-btn transition duration-300 hover:bg-[#1EBE5D] hover:shadow-btn-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:translate-y-px ${className}`}
     >
       <svg
         width="22"

@@ -1,7 +1,9 @@
 "use client";
 
+import SectionHeading from "@/components/Common/SectionHeading";
 import WhatsAppButton from "@/components/Common/WhatsAppButton";
-import { trackContactFormSubmit } from "@/lib/analytics";
+import { trackCallClick, trackContactFormSubmit } from "@/lib/analytics";
+import { SITE_PHONE } from "@/lib/site";
 import { FormEvent, useState } from "react";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -56,98 +58,98 @@ const Contact = () => {
   const isSubmitting = status === "submitting";
 
   return (
-    <section
-      id="contact"
-      className="overflow-hidden bg-white py-16 md:py-20 lg:py-28"
-    >
+    <section id="contact" className="bg-white py-16 md:py-20 lg:py-28">
       <div className="container">
-        <div className="-mx-4 flex flex-wrap justify-center">
-          <div className="w-full px-4 lg:w-9/12 xl:w-8/12">
-            <div className="rounded-sm border border-stroke-stroke bg-white px-8 py-11 shadow-three sm:p-[55px] lg:px-8 xl:p-[55px]">
-              <div className="mb-10 text-center">
-                <span className="mb-3 inline-flex items-center justify-center gap-3 text-xs font-semibold uppercase tracking-wide text-secondary">
-                  <span className="accent-rule" />
-                  צרו קשר
-                </span>
-                <h2 className="mb-3 text-3xl font-extrabold text-black sm:text-4xl">
-                  ספרו לנו מה קרה
-                </h2>
-                <p className="mx-auto max-w-[520px] text-base font-medium leading-relaxed text-body-color">
-                  השאירו פרטים ונחזור אליכם בהקדם לתיאום ביקור בזירה וייעוץ
-                  ראשוני ללא התחייבות.
-                </p>
-              </div>
-              <form onSubmit={handleSubmit} noValidate>
-                <div className="-mx-4 flex flex-wrap">
-                  <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-8">
-                      <label
-                        htmlFor="name"
-                        className="mb-3 block text-sm font-medium text-dark"
-                      >
-                        שם מלא
-                      </label>
-                      <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        required
-                        autoComplete="name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        placeholder="הקלידו את שמכם"
-                        className="w-full rounded-sm border border-stroke-stroke bg-white px-6 py-3 text-base text-dark outline-none transition focus:border-primary"
-                      />
-                    </div>
-                  </div>
-                  <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-8">
-                      <label
-                        htmlFor="phone"
-                        className="mb-3 block text-sm font-medium text-dark"
-                      >
-                        טלפון
-                      </label>
-                      <input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        required
-                        autoComplete="tel"
-                        inputMode="tel"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        placeholder="050-6273002"
-                        className="w-full rounded-sm border border-stroke-stroke bg-white px-6 py-3 text-base text-dark outline-none transition focus:border-primary"
-                      />
-                    </div>
-                  </div>
-                  <div className="w-full px-4 text-center">
-                    <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="inline-flex items-center justify-center rounded-sm bg-primary px-10 py-4 text-base font-semibold text-white shadow-submit transition duration-300 hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-60"
-                      >
-                        {isSubmitting ? "שולח..." : "שליחת פנייה"}
-                      </button>
-                      <WhatsAppButton />
-                    </div>
-                    {status === "success" && (
-                      <p className="mt-6 text-sm font-medium text-primary">
-                        ההודעה נשלחה. נחזור אליכם בהקדם.
-                      </p>
-                    )}
-                    {status === "error" && (
-                      <p className="mt-6 text-sm font-medium text-red-600">
-                        {errorMessage || "אירעה שגיאה. נסו שוב מאוחר יותר."}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </form>
-            </div>
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.05fr] lg:items-start lg:gap-20">
+          <div>
+            <SectionHeading
+              title="ספרו לי מה קרה"
+              paragraph="השאירו פרטים ואחזור אליכם בהקדם לתיאום ביקור בזירה וייעוץ ראשוני ללא התחייבות."
+            />
+            <a
+              href={`tel:${SITE_PHONE}`}
+              onClick={() => trackCallClick()}
+              className="mt-8 inline-flex items-center gap-3 border-t border-black/10 pt-6 text-2xl font-bold text-black transition hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary md:text-3xl"
+            >
+              <span dir="ltr">050-6273002</span>
+            </a>
+            <p className="mt-3 flex items-center gap-2 text-sm text-body-color md:text-base">
+              <span className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+              הגעה לזירת הנזק תוך 24 שעות
+            </p>
           </div>
+
+          <form
+            onSubmit={handleSubmit}
+            noValidate
+            className="border-t border-black/10 pt-9 lg:border-t-0 lg:pt-2"
+          >
+            <div className="grid gap-6 sm:grid-cols-2">
+              <div>
+                <label
+                  htmlFor="name"
+                  className="mb-2 block text-sm font-medium text-dark"
+                >
+                  שם מלא
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  autoComplete="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="הקלידו את שמכם"
+                  className="w-full rounded-sm border border-black/15 bg-white px-5 py-3.5 text-base text-dark outline-none transition placeholder:text-body-color/70 focus:border-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="mb-2 block text-sm font-medium text-dark"
+                >
+                  טלפון
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  required
+                  autoComplete="tel"
+                  inputMode="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="050-0000000"
+                  className="w-full rounded-sm border border-black/15 bg-white px-5 py-3.5 text-base text-dark outline-none transition placeholder:text-body-color/70 focus:border-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                />
+              </div>
+            </div>
+
+            <div className="mt-7 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="inline-flex w-full items-center justify-center rounded-sm bg-primary px-9 py-4 text-base font-semibold text-white shadow-btn transition duration-300 hover:bg-secondary hover:shadow-btn-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:translate-y-px disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+              >
+                {isSubmitting ? "שולח..." : "שליחת פנייה"}
+              </button>
+              <WhatsAppButton className="w-full sm:w-auto" />
+            </div>
+
+            <div aria-live="polite">
+              {status === "success" && (
+                <p className="mt-5 text-sm font-medium text-primary">
+                  ההודעה נשלחה. אחזור אליכם בהקדם.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="mt-5 text-sm font-medium text-red-600">
+                  {errorMessage || "אירעה שגיאה. נסו שוב מאוחר יותר."}
+                </p>
+              )}
+            </div>
+          </form>
         </div>
       </div>
     </section>
