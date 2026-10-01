@@ -26,7 +26,7 @@ const About = () => {
           <div className="w-full px-4 lg:w-1/2">
             <div className="relative mx-auto aspect-[4/5] max-w-[420px] overflow-hidden rounded-sm shadow-lg">
               <Image
-                src="/images/hero/uri-hero.png"
+                src="/images/hero/uri-hero.jpg"
                 alt="אורי דבי – שמאי נזקי רכוש מוסמך, בזירת בדיקה"
                 fill
                 sizes="(max-width: 992px) 100vw, 420px"

@@ -1,27 +1,11 @@
+import Image from "next/image";
+import CasePhotos from "./CasePhotos";
 import SectionTitle from "../Common/SectionTitle";
-
-// TODO: replace with real client reviews before launch (ideally Google reviews).
-const testimonials = [
-  {
-    name: "לינדה א.",
-    quote:
-      "אחרי פיצוץ צנרת חברת הביטוח הציעה סכום מגוחך. אורי ליווה אותי לאורך כל הדרך, תיעד הכל מקצועית ובסוף קיבלתי פיצוי כפול ממה שהוצע בהתחלה.",
-  },
-  {
-    name: "דנה כ.",
-    quote:
-      "שירות אנושי ומקצועי. הרגשתי שמישהו סוף סוף נלחם בשבילי מול חברת הביטוח ולא להפך. ממליצה בחום לכל מי שנקלע לנזק.",
-  },
-  {
-    name: "יוסי מ.",
-    quote:
-      "זמין, ישר ומדויק. חוות הדעת שהוכנה הייתה קבילה ומפורטת, והתביעה נסגרה מהר יותר משחשבתי. תודה על הליווי הצמוד.",
-  },
-];
+import testimonialsData from "./testimonialsData";
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="bg-gray-light py-16 md:py-20 lg:py-28">
+    <section id="testimonials" className="bg-cream py-16 md:py-20 lg:py-28">
       <div className="container">
         <SectionTitle
           eyebrow="לקוחות ממליצים"
@@ -32,7 +16,7 @@ const Testimonials = () => {
         />
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {testimonials.map((item) => (
+          {testimonialsData.map((item) => (
             <div
               key={item.name}
               className="flex h-full flex-col rounded-sm border border-stroke-stroke bg-white p-8 shadow-two"
@@ -44,10 +28,31 @@ const Testimonials = () => {
                   </svg>
                 ))}
               </div>
-              <p className="mb-6 flex-1 text-base leading-relaxed text-body-color">
+
+              <p className="mb-7 flex-1 text-base leading-relaxed text-body-color">
                 ״{item.quote}״
               </p>
-              <p className="text-base font-bold text-black">{item.name}</p>
+
+              <div className="flex items-center gap-3 border-t border-black/10 pt-5">
+                {item.avatar ? (
+                  <Image
+                    src={item.avatar}
+                    alt={item.name}
+                    width={96}
+                    height={96}
+                    className="h-11 w-11 shrink-0 rounded-full object-cover"
+                  />
+                ) : (
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent-soft text-lg font-bold text-accent">
+                    {item.name.charAt(0)}
+                  </span>
+                )}
+                <p className="text-base font-bold text-black">{item.name}</p>
+              </div>
+
+              {item.photos && item.photos.length > 0 && (
+                <CasePhotos photos={item.photos} />
+              )}
             </div>
           ))}
         </div>

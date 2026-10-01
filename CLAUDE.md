@@ -33,13 +33,24 @@ professional appraisal/insurance feel:
 - `--color-primary: #0F3B68` (deep blue)
 - `--color-secondary: #2E6EA6` (supporting blue, used for hover and
   uppercase section eyebrows)
-- `--color-accent: #D4AF37` (gold, used sparingly — accent rules,
-  footer column underlines, the dot in the brand wordmark)
-- `--color-gray-light: #F5F7FA` (alternating section background)
+- `--color-accent: #1C62AC` (action blue — every CTA, bullet, rule and
+  highlight). `--color-accent-dark: #14487E` for hover,
+  `--color-accent-soft: #EAF2FB` for tinted callout backgrounds.
+  This replaced the original gold `#D4AF37`, which the client found
+  too quiet; gold is gone from the site entirely.
+- `--color-cream: #F4F8FC` (cool tint used to break up long runs of
+  white)
+- `--color-gray-light: #F5F7FA` (legacy alternating background, still
+  used by inner pages)
 
-Alternating section backgrounds: Hero/Services/Process/Contact on
-white; Why Choose Us/About/Blog on `bg-gray-light`. Section eyebrows
-use the `accent-rule` helper class defined in `index.css`.
+Homepage background rhythm: Hero white → Contact `bg-black` (the deep
+navy, white text, form on a white card) → Testimonials `bg-cream` →
+Why Choose Us white → Cases `bg-cream` → Services white → Process
+`bg-cream`. All-white was the specific complaint; keep a section
+alternating or filled rather than adding another white one.
+
+`bg-accent` on the navy Contact section does not separate enough —
+emphasis there is white-on-navy, not blue-on-navy.
 
 ## Internationalization & direction
 
@@ -68,24 +79,37 @@ use the `accent-rule` helper class defined in `index.css`.
 The homepage (`src/app/page.tsx`) renders these sections in order:
 
 1. **Hero** — `components/Hero/`
-2. **Services** — `components/Services/` (catalog of damage-type
+2. **Contact** — `components/Contact/` (form only — no newsletter).
+   Deliberately high: the lead form is the page's job.
+3. **Testimonials** — `components/Testimonials/` (copy in
+   `testimonialsData.ts`; each reviewer carries their own portrait and
+   their own damage photos)
+4. **Why Choose Us** — `components/WhyChooseUs/` (advocacy proposition
+   + proof points)
+5. **Cases** — `components/Cases/` (real job photos, copy in
+   `casesData.ts`)
+6. **Services** — `components/Services/` (catalog of damage-type
    expertise — section `id="services"`)
-3. **Why Choose Us** — `components/WhyChooseUs/` (advocacy proposition
-   + bullet list)
-4. **Process** — `components/Process/` (3 cards: response time,
+7. **Process** — `components/Process/` (3 columns: response time,
    representation, transparency)
-5. **About** — `components/About/` (company background)
-6. **Contact** — `components/Contact/` (form only — no newsletter)
-7. **Blog** — `components/Blog/`
 
-`Header` and `Footer` wrap every route via `src/app/layout.tsx`.
-`ScrollToTop` and `ScrollUp` are utility components.
+`Header` and `Footer` wrap every route via `src/app/layout.tsx`, with
+`{children}` inside a `<main>` landmark. `ScrollToTop`, `ScrollUp` and
+`StickyCallBar` are utility components.
 
 When adding a new homepage section: drop a component in
 `src/components/<Name>/index.tsx`, import it into `src/app/page.tsx`,
 and pick an order that fits the narrative flow above. Don't reintroduce
-removed sections (Pricing, Newsletter, Brand carousel, Video promo,
-Testimonials) without an explicit ask.
+removed sections (Pricing, Newsletter, Brand carousel, Video promo)
+without an explicit ask.
+
+**`StickyCallBar`** is a permanent bottom bar on every page and every
+breakpoint: phone number + "חייג עכשיו להצעת מחיר" on an `bg-accent`
+strip spanning the full width, with the WhatsApp circle overlaid at
+`start-3` (right, in RTL). It replaced `FloatingWhatsApp`, which is
+deleted — do not add a second floating WhatsApp affordance. `body`
+carries `pb-[76px] md:pb-[84px]` so the bar never covers page content,
+and `ScrollToTop` is offset above it.
 
 ## Inner pages
 

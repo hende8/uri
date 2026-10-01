@@ -19,7 +19,7 @@ const Process = () => {
   return (
     <section
       id="process"
-      className="border-t border-black/10 bg-white py-16 md:py-20 lg:py-28"
+      className="bg-cream py-16 md:py-20 lg:py-28"
     >
       <div className="container">
         <SectionHeading title="ליווי מקצועי מהפנייה הראשונה ועד הפיצוי" />

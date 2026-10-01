@@ -47,7 +47,7 @@ const AboutFounder = () => {
           <div className="w-full px-4 lg:w-1/2">
             <div className="relative mx-auto mt-12 aspect-[4/5] max-w-[440px] overflow-hidden rounded-sm shadow-lg lg:mt-0">
               <Image
-                src="/images/about/uri-about.png"
+                src="/images/about/uri-about.jpg"
                 alt="אורי דבי - שמאי נזקי רכוש מוסמך"
                 fill
                 sizes="(max-width: 992px) 100vw, 440px"

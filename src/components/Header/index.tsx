@@ -17,16 +17,12 @@ const Header = () => {
   };
 
   const [sticky, setSticky] = useState(false);
-  const handleStickyNavbar = () => {
-    if (window.scrollY >= 80) {
-      setSticky(true);
-    } else {
-      setSticky(false);
-    }
-  };
   useEffect(() => {
-    window.addEventListener("scroll", handleStickyNavbar);
-  });
+    const onScroll = () => setSticky(window.scrollY >= 80);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const [openIndex, setOpenIndex] = useState(-1);
   const handleSubmenu = (index) => {
@@ -48,11 +44,11 @@ const Header = () => {
     >
       <div className="container">
         <div className="relative -mx-4 flex items-center justify-between">
-          <div className="w-60 max-w-full px-4 xl:ms-12">
+          <div className="w-72 max-w-full px-4 xl:ms-12">
             <Link
               href="/"
               aria-label="אורי שמאות רכוש — דף הבית"
-              className={`header-logo flex items-center w-full ${sticky ? "py-2 lg:py-1" : "py-4"
+              className={`header-logo flex items-center w-full ${sticky ? "py-1" : "py-1 md:py-3"
                 } `}
             >
               <Image
@@ -61,7 +57,7 @@ const Header = () => {
                 width={1774}
                 height={887}
                 priority
-                className="h-12 w-auto md:h-16 lg:h-20"
+                className="h-[84px] w-auto transition-[height] duration-300 md:h-24 lg:h-28"
               />
             </Link>
           </div>
@@ -163,7 +159,7 @@ const Header = () => {
               <a
                 href="tel:+972506273002"
                 onClick={() => trackCallClick()}
-                className="ease-in-up hidden items-center gap-2 rounded-sm bg-primary px-7 py-3 text-base font-semibold text-white shadow-btn transition duration-300 hover:bg-secondary hover:shadow-btn-hover md:flex md:px-8 lg:px-6 xl:px-8"
+                className="ease-in-up hidden items-center gap-2 rounded-sm bg-accent px-7 py-3 text-base font-semibold text-white shadow-btn transition duration-300 hover:bg-accent-dark hover:shadow-btn-hover md:flex md:px-8 lg:px-6 xl:px-8"
               >
                 050-6273002
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

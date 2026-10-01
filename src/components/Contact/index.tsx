@@ -1,6 +1,5 @@
 "use client";
 
-import SectionHeading from "@/components/Common/SectionHeading";
 import WhatsAppButton from "@/components/Common/WhatsAppButton";
 import { trackCallClick, trackContactFormSubmit } from "@/lib/analytics";
 import { SITE_PHONE } from "@/lib/site";
@@ -58,23 +57,30 @@ const Contact = () => {
   const isSubmitting = status === "submitting";
 
   return (
-    <section id="contact" className="bg-white py-16 md:py-20 lg:py-28">
+    <section id="contact" className="bg-black py-14 md:py-16 lg:py-20">
       <div className="container">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.05fr] lg:items-start lg:gap-20">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-20">
           <div>
-            <SectionHeading
-              title="ספרו לי מה קרה"
-              paragraph="השאירו פרטים ואחזור אליכם בהקדם לתיאום ביקור בזירה וייעוץ ראשוני ללא התחייבות."
-            />
+            <h2 className="max-w-[18ch] text-[1.75rem] font-extrabold leading-[1.14] tracking-[0] text-white sm:text-[2.125rem] md:text-[2.625rem] lg:text-[3.125rem]">
+              ספרו לי מה קרה
+            </h2>
+            <p className="mt-5 max-w-[52ch] text-base leading-relaxed text-white/75 md:text-lg">
+              השאירו פרטים ואחזור אליכם בהקדם לתיאום ביקור בזירה וייעוץ ראשוני
+              ללא התחייבות.
+            </p>
             <a
               href={`tel:${SITE_PHONE}`}
               onClick={() => trackCallClick()}
-              className="mt-8 inline-flex items-center gap-3 border-t border-black/10 pt-6 text-2xl font-bold text-black transition hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary md:text-3xl"
+              className="mt-8 inline-flex items-center gap-3 border-t border-white/20 pt-6 text-2xl font-bold text-white transition hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:text-3xl"
             >
               <span dir="ltr">050-6273002</span>
             </a>
-            <p className="mt-3 flex items-center gap-2 text-sm text-body-color md:text-base">
-              <span className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+            <br />
+            <p className="mt-5 inline-flex items-center gap-2.5 rounded-sm bg-white px-4 py-2.5 text-base font-bold text-black md:text-lg">
+              <svg className="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5.2l3.2 1.9" />
+              </svg>
               הגעה לזירת הנזק תוך 24 שעות
             </p>
           </div>
@@ -82,7 +88,7 @@ const Contact = () => {
           <form
             onSubmit={handleSubmit}
             noValidate
-            className="border-t border-black/10 pt-9 lg:border-t-0 lg:pt-2"
+            className="rounded-sm bg-white p-6 shadow-feature-2 md:p-8 lg:p-9"
           >
             <div className="grid gap-6 sm:grid-cols-2">
               <div>
@@ -101,7 +107,7 @@ const Contact = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="הקלידו את שמכם"
-                  className="w-full rounded-sm border border-black/15 bg-white px-5 py-3.5 text-base text-dark outline-none transition placeholder:text-body-color/70 focus:border-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  className="w-full rounded-sm border border-black/15 bg-white px-5 py-3.5 text-base text-dark outline-none transition placeholder:text-body-color/70 focus:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                 />
               </div>
               <div>
@@ -121,7 +127,7 @@ const Contact = () => {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="050-0000000"
-                  className="w-full rounded-sm border border-black/15 bg-white px-5 py-3.5 text-base text-dark outline-none transition placeholder:text-body-color/70 focus:border-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  className="w-full rounded-sm border border-black/15 bg-white px-5 py-3.5 text-base text-dark outline-none transition placeholder:text-body-color/70 focus:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                 />
               </div>
             </div>
@@ -130,7 +136,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex w-full items-center justify-center rounded-sm bg-primary px-9 py-4 text-base font-semibold text-white shadow-btn transition duration-300 hover:bg-secondary hover:shadow-btn-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:translate-y-px disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+                className="inline-flex w-full items-center justify-center rounded-sm bg-accent px-9 py-4 text-base font-semibold text-white shadow-btn transition duration-300 hover:bg-accent-dark hover:shadow-btn-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent active:translate-y-px disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
               >
                 {isSubmitting ? "שולח..." : "שליחת פנייה"}
               </button>
@@ -139,7 +145,7 @@ const Contact = () => {
 
             <div aria-live="polite">
               {status === "success" && (
-                <p className="mt-5 text-sm font-medium text-primary">
+                <p className="mt-5 text-sm font-medium text-green-700">
                   ההודעה נשלחה. אחזור אליכם בהקדם.
                 </p>
               )}

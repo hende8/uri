@@ -172,3 +172,76 @@ Newest entries on top.
 **Photography — the open item.** `Process` previously rendered `about-image-process.jpg` (a generic stock clipboard shot); the redesign gave it a full-width band, which made the stock quality more obvious, so the image was removed rather than featured. `WhyChooseUs` still uses `about-image-blueprint.jpg`, marked `TODO(photo)`. Both slots want real photos from Uri's own jobs. Stock imagery is a stronger "assembled" signal than any layout choice — prefer no image to a stock one.
 
 **Voice fixes applied while rewriting:** `אנחנו מנהלים` → `אני מנהל` (Process step 2), `ספרו לנו` → `ספרו לי` and `נחזור אליכם` → `אחזור אליכם` (Contact), per the first-person-singular rule in CLAUDE.md. The Footer still says `אנחנו דואגים` — not yet rewritten.
+
+---
+
+## 2026-10-01 — Blue accent, StickyCallBar, real photography, image budget
+
+**What:** Client-feedback pass. Gold `#D4AF37` is gone; `--color-accent` is now
+blue `#1C62AC` with `-dark` and `-soft` companions. `FloatingWhatsApp` deleted
+and replaced by `Common/StickyCallBar`. New `Cases` section and a
+`Testimonials/testimonialsData.ts` + `Testimonials/CasePhotos.tsx` pair. Section
+order reshuffled so Contact and Testimonials sit directly under the Hero. Every
+image in `public/` resized and recompressed.
+
+**The accent is blue, not gold, and not orange.** The intermediate step was
+burnt orange `#C2410C`; the client rejected it as too loud and asked for blue.
+If a future pass wants "more pop", the answer is contrast and size, not a
+warmer hue. Two consequences that are easy to get wrong:
+- The emphasis stamp in the Hero h1 is now `bg-accent text-white` (5.6:1). Under
+  gold it was `text-black`. Do not swap the text colour back.
+- `bg-accent` on the navy `Contact` section is blue-on-blue and reads as mud.
+  The 24h badge there is white-on-navy. Any new emphasis in that section must
+  use white or the cream, never the accent.
+
+**`StickyCallBar` layout, learned twice.** The bar is a full-width `bg-accent`
+strip with the WhatsApp circle `absolute` on top. The first attempt made it a
+flex row (circle as a sibling) — the round circle left white page background in
+the corners beside it, which the client flagged. A full-bleed strip with the
+circle overlaid is the only version that reads as "wrapped". Also:
+`end-3` puts it on the **left** in RTL. Right is `start-3`. Got this backwards
+once; check in the browser, not by reading the class name.
+
+**Lightbox sizing: `w-auto` means "intrinsic", not "fill".** `CasePhotos` opens
+a preview. The first version used `<Image width={1400} w-auto max-h-[78vh]>`,
+which rendered a 400×400 source at 312px — tiny — while a 1050×1400 source
+filled the screen. Fix is a fixed-height box (`relative h-[72vh] w-full`) plus
+`fill` + `object-contain`, so every source normalises to the same display box
+regardless of its own resolution. **Several of Uri's photos are genuinely
+400×400 / 600×450** because they came through WhatsApp; they will look soft
+enlarged. Ask for originals off the phone before blaming the markup.
+
+**The header logo cannot simply grow.** `logo-lockup.png` is ~1.4:1, so height
+is expensive: at `h-[108px]` the mobile header hit 124px, 15% of a 844px screen,
+and pushed the h1 below the fold. The client called this "weird proportions".
+The working trade is **84px logo with the wrapper padding cut to `py-1`** —
+header 92px (shorter than the 96px original) while the logo fills 91% of the
+band instead of 67%. To go bigger without a taller header you need a *horizontal*
+lockup asset (symbol beside text on one line); it cannot be derived from the
+current file, whose alpha bbox is the full canvas (no padding to crop).
+
+**Image budget — `public/` was 44MB.** `water-damage-wall-01.jpg` alone was 5MB;
+`logo-lockup.png` was 936KB and rendered at 96px. Everything is now resized to
+its real display ceiling and recompressed: **44MB → 4.5MB**. Opaque photos that
+were PNGs (`uri-hero`, `uri-about`, `uri-inspecting`) were converted to JPEG and
+their references updated; the logo keeps alpha but is palette-quantised. New
+rule: nothing over ~300KB goes into `public/`, and no photograph goes in as PNG.
+`next.config.js` now requests `["image/avif", "image/webp"]`.
+
+**Two render-blocking bugs fixed in the same pass:**
+- `src/styles/index.css` had `@import url(fonts.googleapis.com/...Heebo)` **on top
+  of** `next/font/google` in `layout.tsx`. Two copies of the same font, one of
+  them a render-blocking external request. Deleted the `@import`; `next/font` is
+  the only loader.
+- `Header/index.tsx` called `useEffect` with no dependency array and no cleanup,
+  adding a fresh `scroll` listener on every render. Now `[]` + `removeEventListener`
+  + `{ passive: true }`.
+
+**Closed from the previous entry's open list:** `<main>` landmark added in
+`layout.tsx`; the sticky mobile contact bar now exists. Lighthouse accessibility
+is 100, SEO 100, CLS 0.
+
+**Still open:** portraits for טולי and רון in `public/images/testimonials-people/`
+(לינדה is in; the component falls back to a lettered circle when `avatar` is
+absent). `WhyChooseUs` no longer renders `about-image-blueprint.jpg` — the stock
+blueprint was removed at the client's request, and the section is text-only now.

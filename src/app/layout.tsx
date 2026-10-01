@@ -1,4 +1,4 @@
-import FloatingWhatsApp from "@/components/Common/FloatingWhatsApp";
+import StickyCallBar from "@/components/Common/StickyCallBar";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -103,7 +103,7 @@ export default function RootLayout({
     <html lang="he" dir="rtl">
       <head />
 
-      <body className={`bg-white ${heebo.className}`}>
+      <body className={`bg-white pb-[76px] md:pb-[84px] ${heebo.className}`}>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"
@@ -126,10 +126,10 @@ export default function RootLayout({
         />
         <div className="isolate">
           <Header />
-          {children}
+          <main>{children}</main>
           <Footer />
         </div>
-        <FloatingWhatsApp />
+        <StickyCallBar />
         <ScrollToTop />
       </body>
     </html>
