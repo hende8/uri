@@ -26,6 +26,7 @@ const testimonialsData: Testimonial[] = [
   },
   {
     name: "טולי",
+    avatar: "/images/testimonials-people/tuli.jpg",
     quote:
       "הוא היה מעולה, זמין ועמד בזמנים. גם לאחר מתן הדוח הוא עזר לנו וענה על שאלות.",
     photos: [
@@ -41,6 +42,7 @@ const testimonialsData: Testimonial[] = [
   },
   {
     name: "רון",
+    avatar: "/images/testimonials-people/ron.jpg",
     quote:
       "הייתי מרוצה מאוד. אורי אדיב, מקצועי וענייני. הגיע בזמן, שלח את הדוח במהירות והסביר הכל בצורה ברורה. ממליץ בחום!",
     photos: [
