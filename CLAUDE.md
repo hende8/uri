@@ -104,7 +104,7 @@ removed sections (Pricing, Newsletter, Brand carousel, Video promo)
 without an explicit ask.
 
 **`StickyCallBar`** is a permanent bottom bar on every page and every
-breakpoint: phone number + "חייג עכשיו להצעת מחיר" on an `bg-accent`
+breakpoint: phone number + "חייג עכשיו לייעוץ חינם" on an `bg-accent`
 strip spanning the full width, with the WhatsApp circle overlaid at
 `start-3` (right, in RTL). It replaced `FloatingWhatsApp`, which is
 deleted — do not add a second floating WhatsApp affordance. `body`

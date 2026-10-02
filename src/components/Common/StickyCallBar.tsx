@@ -36,7 +36,7 @@ const StickyCallBar = () => {
             </span>
           </span>
           <span className="mt-1 text-base font-bold leading-tight md:text-lg">
-            חייג עכשיו להצעת מחיר
+            חייג עכשיו לייעוץ חינם
           </span>
         </a>
 
