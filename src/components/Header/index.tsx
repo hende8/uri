@@ -52,16 +52,16 @@ const Header = () => {
                 } `}
             >
               <Image
-                src="/logo-lockup.png"
+                src="/logo-lockup-v2.png"
                 alt="אורי שמאות"
-                width={1774}
-                height={887}
+                width={759}
+                height={245}
                 priority
-                className="h-[84px] w-auto transition-[height] duration-300 md:h-24 lg:h-28"
+                className="h-16 w-auto object-contain transition-[height] duration-300 md:h-[72px] lg:h-20"
               />
             </Link>
           </div>
-          <div className="flex w-full items-center justify-between px-4">
+          <div className="flex min-w-0 flex-1 items-center justify-between px-4">
             <div>
               <button
                 onClick={navbarToggleHandler}

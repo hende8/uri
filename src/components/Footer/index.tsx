@@ -16,11 +16,11 @@ const Footer = () => {
                 className="mb-8 inline-block"
               >
                 <Image
-                  src="/logo-lockup.png"
+                  src="/logo-lockup-v2.png"
                   alt="אורי שמאות"
-                  width={1774}
-                  height={887}
-                  className="h-12 w-auto"
+                  width={759}
+                  height={245}
+                  className="h-12 w-auto object-contain"
                 />
               </Link>
               <p className="mb-9 text-base leading-relaxed text-body-color">

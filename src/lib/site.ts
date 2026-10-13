@@ -9,4 +9,4 @@ export const SITE_DESCRIPTION =
 
 export const SITE_PHONE = "+972506273002";
 
-export const SITE_LOGO_PATH = "/logo-lockup.png";
+export const SITE_LOGO_PATH = "/logo-lockup-v2.png";

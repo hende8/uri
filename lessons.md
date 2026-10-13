@@ -245,3 +245,45 @@ is 100, SEO 100, CLS 0.
 (לינדה is in; the component falls back to a lettered circle when `avatar` is
 absent). `WhyChooseUs` no longer renders `about-image-blueprint.jpg` — the stock
 blueprint was removed at the client's request, and the section is text-only now.
+
+## Logo: the alpha-bbox trap, and the header flex bug
+
+**Correction to the entry above.** It states the lockup "cannot be derived from
+the current file, whose alpha bbox is the full canvas (no padding to crop)".
+That is wrong, and the reason is worth keeping: the file's background is not
+transparent, it is `alpha=4` — *almost* transparent. Any `getbbox()` on the alpha
+channel therefore returns the full canvas and reports zero padding. Composite
+onto white and threshold on luminance instead:
+
+```python
+flat = Image.alpha_composite(Image.new('RGBA', im.size, 'white'), im).convert('L')
+flat.point(lambda p: 255 if p < 200 else 0).getbbox()
+```
+
+The real ink was 743x229 inside an 800x400 canvas — **43% of the file's height
+was empty**. `h-[84px]` on mobile therefore rendered a 48px-tall logo floating in
+whitespace, with the "שמאות נזקי רכוש" sub-line at 9px. That, not the CSS, was
+why the logo read as weak on phones.
+
+`public/logo-lockup-v2.png` is the cropped asset (759x245, ratio 3.098, 8px
+margin). The original stays at `logo-lockup.png`, unreferenced, as a fallback.
+**Asset edits get a new filename**, never an in-place overwrite: the old bytes
+sit in the CDN and in returning visitors' caches under the old URL, so an
+in-place fix does not reach them. Heights were rescaled for the new ratio
+(`h-16 md:h-[72px] lg:h-20`) — the header is *shorter* than before while the
+visible logo is 25% larger.
+
+**The header also squashed the logo at every viewport width.** In
+`Header/index.tsx` the nav/CTA sibling was `w-full`, i.e. it demanded 100% of the
+container for itself. The flex line asked for 288 + 1400 = 1688px inside 1400px,
+so the browser shrank both children proportionally: the 288px logo box became
+235px, the image was capped to 203px by `max-width:100%` while `lg:h-28` held the
+height at 112px, and the default `object-fit: fill` stretched it — a 9.4%
+distortion on a 1920px screen with room to spare. Fixed with `flex-1 min-w-0` on
+the sibling. `shrink-0` on the logo box also fixes it but overflows the nav at
+exactly 1024px; don't use it.
+
+**`object-contain` belongs on every logo `<Image>`.** It is the only thing that
+makes distortion impossible regardless of what a future layout change does to the
+box. Declared `width`/`height` must match the file (they were `1774x887` for an
+800x400 file, which inflated the generated srcset).
