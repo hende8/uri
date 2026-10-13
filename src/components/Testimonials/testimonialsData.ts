@@ -9,7 +9,7 @@ export type Testimonial = {
 // falls back to a lettered circle. `photos` are that reviewer's damage photos.
 const testimonialsData: Testimonial[] = [
   {
-    name: "לינדה",
+    name: "לינדה חזן",
     avatar: "/images/testimonials-people/linda.jpg",
     quote:
       "מושלם, שירות מושלם! המחיר שלו לדעתי היה טוב. הוא היה מכיל, מבין, מתחשב, בן אדם עם לב. אין לי מילה אחת רעה להגיד עליו.",
@@ -25,7 +25,7 @@ const testimonialsData: Testimonial[] = [
     ],
   },
   {
-    name: "טולי",
+    name: "שלום חיון",
     avatar: "/images/testimonials-people/tuli.jpg",
     quote:
       "הוא היה מעולה, זמין ועמד בזמנים. גם לאחר מתן הדוח הוא עזר לנו וענה על שאלות.",
