@@ -149,12 +149,20 @@ Tracking is centralized in `src/lib/analytics.ts`. The Google tag
 - GA4 measurement id: `G-767D2ZE081`
 - Google Ads id: `AW-714018549`
 
+**Do not delete `gtag('config', 'AW-714018549')` to save page weight.**
+It pulls a second ~151KB gtag bundle and looks like dead weight, because
+nothing in `analytics.ts` passes a `send_to` and the conversions could
+plausibly be arriving via a GA4 import. They are not. The actions below
+are matched **by event name** against the Ads tag (see "with code" para),
+so removing the config silently stops the WhatsApp and phone-call
+conversions recording, with no error anywhere.
+
 Conversion helpers (all no-op safely if `gtag` isn't loaded, and use
 `event_callback`/`event_timeout` so the hit registers before navigation):
 
 | Helper | Event fired | Wired to |
 |---|---|---|
-| `trackWhatsAppClick()` | `conversion_event_whatsapp` | every WhatsApp link — `WhatsAppButton`, `FloatingWhatsApp`, nav icon, footer |
+| `trackWhatsAppClick()` | `conversion_event_whatsapp` | every WhatsApp link — `WhatsAppButton`, `StickyCallBar`, nav icon, footer |
 | `trackCallClick()` | `conversion_event_phone_call` | every `tel:` link — nav call button, hero CTA, footer |
 | `trackContactClick()` | `conversion_event_contact` | generic/email fallback (kept, largely unused) |
 | `trackContactFormSubmit()` | GA4 `generate_lead` + PostHog `lead_submitted` | contact form submit |
@@ -166,6 +174,11 @@ no-code / "Conversions from phone calls" forwarding-number path).
 Category mapping: WhatsApp → **Contact**, Call → **Phone call lead**.
 Events only appear in the Ads UI after the code is deployed live and
 the button is clicked once.
+
+PostHog runs with `disable_session_recording` and `disable_surveys` in
+`src/instrumentation-client.ts`. Session replay and surveys were costing
+98KB on first paint against a mobile LCP of 7.7s, and the site only needs
+event capture. Don't turn them back on without re-measuring.
 
 **Sitewide voice:** homepage/services/why-us copy is first-person
 singular / neutral ("אני", "ליווי של…") — the business is a single
