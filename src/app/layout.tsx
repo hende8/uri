@@ -20,7 +20,7 @@ const GOOGLE_ADS_ID = "AW-714018549";
 
 const heebo = Heebo({
   subsets: ["hebrew", "latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -101,7 +101,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="he" dir="rtl">
-      <head />
+      <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://us-assets.i.posthog.com" />
+        <link rel="preconnect" href="https://us.i.posthog.com" />
+      </head>
 
       <body className={`bg-white pb-[76px] md:pb-[84px] ${heebo.className}`}>
         <Script
