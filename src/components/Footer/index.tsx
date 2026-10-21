@@ -12,7 +12,7 @@ const Footer = () => {
             <div className="mb-12 max-w-[360px] lg:mb-16">
               <Link
                 href="/"
-                aria-label="אורי שמאות רכוש — דף הבית"
+                aria-label="אורי שמאות רכוש - דף הבית"
                 className="mb-8 inline-block"
               >
                 <Image

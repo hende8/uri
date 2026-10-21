@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "תקנון אתר | אורי שמאות רכוש",
   description:
-    "תקנון השימוש באתר אורי שמאות רכוש – תנאי השימוש, אחריות, קניין רוחני וסמכות שיפוט.",
+    "תקנון השימוש באתר אורי שמאות רכוש - תנאי השימוש, אחריות, קניין רוחני וסמכות שיפוט.",
   alternates: {
     canonical: "/terms",
   },
@@ -65,7 +65,7 @@ const TermsPage = () => {
                   <ul className="space-y-3 ps-6">
                     <li className="flex items-start gap-3">
                       <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                      מתן מענה לשאלות כלליות בתחום שמאות נזקי רכוש – נזקי מים,
+                      מתן מענה לשאלות כלליות בתחום שמאות נזקי רכוש - נזקי מים,
                       אש, פריצה ונזקי טבע.
                     </li>
                     <li className="flex items-start gap-3">

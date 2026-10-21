@@ -2,8 +2,8 @@ import { Post } from "@/types/blog";
 
 const post: Post = {
   slug: "property-damage-appraiser-vs-insurance-appraiser",
-  title: "שמאי מטעם המבוטח מול שמאי חברת הביטוח – מה ההבדל?",
-  metaTitle: "שמאי מטעם המבוטח מול שמאי חברת הביטוח – מה ההבדל?",
+  title: "שמאי מטעם המבוטח מול שמאי חברת הביטוח - מה ההבדל?",
+  metaTitle: "שמאי מטעם המבוטח מול שמאי חברת הביטוח - מה ההבדל?",
   metaDescription:
     "מה ההבדל בין שמאי מטעם המבוטח לשמאי חברת הביטוח? כך תבינו את תפקידו של כל אחד וכיצד מתנהל תהליך הערכת הנזק.",
   primaryKeyword: "שמאי מטעם המבוטח",

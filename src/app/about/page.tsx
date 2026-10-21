@@ -5,7 +5,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "אודות | אורי שמאות רכוש",
-  description: "הכירו את המשרד – שמאות נזקי רכוש עצמאית הפועלת אך ורק עבור המבוטח, עם רקע הנדסי ובטחוני.",
+  description: "הכירו את המשרד - שמאות נזקי רכוש עצמאית הפועלת אך ורק עבור המבוטח, עם רקע הנדסי ובטחוני.",
   alternates: {
     canonical: "/about",
   },

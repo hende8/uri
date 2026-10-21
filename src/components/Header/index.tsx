@@ -37,8 +37,8 @@ const Header = () => {
 
   return (
     <header
-      className={`header top-0 right-0 left-0 z-40 flex w-full items-center ${sticky
-        ? "fixed z-9999 border-b border-stroke-stroke bg-white/95 backdrop-blur-sm transition"
+      className={`header top-0 right-0 left-0 z-40 flex w-full items-center border-b border-accent ${sticky
+        ? "fixed z-9999 bg-white/95 backdrop-blur-sm transition"
         : "absolute bg-transparent"
         }`}
     >
@@ -47,7 +47,7 @@ const Header = () => {
           <div className="w-72 max-w-full px-4 xl:ms-12">
             <Link
               href="/"
-              aria-label="אורי שמאות רכוש — דף הבית"
+              aria-label="אורי שמאות רכוש - דף הבית"
               className={`header-logo flex items-center w-full ${sticky ? "py-1" : "py-1 md:py-3"
                 } `}
             >

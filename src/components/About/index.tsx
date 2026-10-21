@@ -4,7 +4,7 @@ import SectionTitle from "../Common/SectionTitle";
 const stats = [
   { value: "35", label: "שנות שירות במערך הביטחון, צה״ל ומשטרת ישראל" },
   { value: "24/6", label: "זמינות לפניות דחופות בזירת הנזק" },
-  { value: "100%", label: "פעולה עבור המבוטח – לא עבור חברות הביטוח" },
+  { value: "100%", label: "פעולה עבור המבוטח - לא עבור חברות הביטוח" },
 ];
 
 const About = () => {
@@ -27,7 +27,7 @@ const About = () => {
             <div className="relative mx-auto aspect-[4/5] max-w-[420px] overflow-hidden rounded-sm shadow-lg">
               <Image
                 src="/images/hero/uri-hero.jpg"
-                alt="אורי דבי – שמאי נזקי רכוש מוסמך, בזירת בדיקה"
+                alt="אורי דבי - שמאי נזקי רכוש מוסמך, בזירת בדיקה"
                 fill
                 sizes="(max-width: 992px) 100vw, 420px"
                 className="object-cover"
@@ -37,10 +37,10 @@ const About = () => {
           <div className="w-full px-4 lg:w-1/2">
             <div className="mx-auto mt-10 max-w-[520px] space-y-5 text-base leading-relaxed text-body-color md:text-lg lg:mt-0">
               <p>
-                משרד שמאות עצמאי שפועל אך ורק עבור המבוטח – לא עבור חברות הביטוח.
+                משרד שמאות עצמאי שפועל אך ורק עבור המבוטח - לא עבור חברות הביטוח.
               </p>
               <p>
-                מאחורי המשרד עומד אורי דבי — שמאי רכוש מוסמך, בוגר מכללת השמאים
+                מאחורי המשרד עומד אורי דבי - שמאי רכוש מוסמך, בוגר מכללת השמאים
                 ברמת גן, הנדסאי אלקטרוניקה ומחשבים, ובעל 35 שנות שירות במערך
                 הביטחון, צה״ל ומשטרת ישראל בניהול פרויקטי תחזוקה ותקשורת.
               </p>

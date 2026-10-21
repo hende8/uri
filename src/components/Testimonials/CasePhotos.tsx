@@ -49,11 +49,6 @@ const CasePhotos = ({ photos }: { photos: Photo[] }) => {
             </span>
           </button>
         ))}
-        <p className="self-center ps-1 text-xs leading-tight text-body-color">
-          הנזק
-          <br />
-          בתיק שלהם
-        </p>
       </div>
 
       {active && (

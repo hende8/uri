@@ -9,7 +9,7 @@ const Testimonials = () => {
       <div className="container">
         <SectionTitle
           eyebrow="לקוחות ממליצים"
-          title="לקוחות שכבר קיבלו את מה שמגיע להם"
+          title="ההצלחות שלנו"
           center
           width="720px"
           mb="60px"

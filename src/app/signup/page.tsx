@@ -19,7 +19,7 @@ const SignupPage = () => {
                   פתיחת חשבון
                 </h3>
                 <p className="text-body-color mb-11 text-center text-base font-medium">
-                  הרשמה מהירה לאזור הלקוח – ללא עלות
+                  הרשמה מהירה לאזור הלקוח - ללא עלות
                 </p>
                 <button className="border-stroke text-body-color hover:border-primary hover:bg-primary/5 hover:text-primary mb-6 flex w-full items-center justify-center rounded-xs border bg-[#f8f8f8] px-6 py-3 text-base outline-hidden transition-all duration-300">
                   <span className="ms-3">

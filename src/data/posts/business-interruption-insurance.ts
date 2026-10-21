@@ -2,8 +2,8 @@ import { Post } from "@/types/blog";
 
 const post: Post = {
   slug: "business-interruption-insurance",
-  title: "אובדן רווחים בעקבות נזק – המדריך לבעלי עסקים",
-  metaTitle: "אובדן רווחים בעקבות נזק – מה חשוב לדעת",
+  title: "אובדן רווחים בעקבות נזק - המדריך לבעלי עסקים",
+  metaTitle: "אובדן רווחים בעקבות נזק - מה חשוב לדעת",
   metaDescription:
     "אובדן רווחים לאחר שריפה, הצפה או נזק לעסק עלול להיות משמעותי יותר מהנזק הפיזי. כך פועל הכיסוי ומה בודקים.",
   primaryKeyword: "אובדן רווחים",

@@ -121,6 +121,11 @@ and `ScrollToTop` is offset above it.
 
 ## Conventions
 
+- **No en dashes (–) or em dashes (—) in site copy.** Use a plain
+  hyphen (`-`) instead, surrounded by spaces (`X - Y`). This covers
+  page/component copy, blog post titles and bodies, metadata, and
+  aria-labels — anything rendered or read by a user. Code comments and
+  internal docs (this file, `lessons.md`) are exempt.
 - **Don't add CLAUDE.md duplication.** Per-directory CLAUDE.md files
   are not used here — keep all project guidance in this single root
   file.
