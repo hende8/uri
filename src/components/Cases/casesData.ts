@@ -22,7 +22,7 @@ const casesData: Case[] = [
   },
   {
     image: "/images/cases/rocket-strike-stained-glass-window.png",
-    title: "ניפוץ חלון ויטראז' מפגיעת טיל",
+    title: "חלון מנופץ מפגיעת טיל",
   },
 ];
 

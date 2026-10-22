@@ -186,10 +186,12 @@ PostHog runs with `disable_session_recording` and `disable_surveys` in
 event capture. Don't turn them back on without re-measuring.
 
 **Sitewide voice:** homepage/services/why-us copy is first-person
-singular / neutral ("אני", "ליווי של…") — the business is a single
-appraiser, so avoid "המשרד"/"אנחנו" (office/team) framing in
-customer-facing copy. `terms/page.tsx` is the exception: "המשרד" is a
-defined legal term there.
+*plural* / team framing ("אנחנו", "נלחם", "מלווים") even though the
+business is a single appraiser — this is a deliberate choice (2026-10-21)
+to read as a team standing behind the client, not a solo operator.
+Avoid singular "אני"/"מלווה" self-reference in customer-facing copy.
+`terms/page.tsx` is the exception: "המשרד" is a defined legal term
+there, used institutionally regardless of this convention.
 
 ## Local dev
 
